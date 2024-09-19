@@ -69,21 +69,21 @@
                 <p class="title-sidebar">Menú</p>
                 <ul class="lisst menu">
                     <li>
-                        <a href="<?= base_url('doctor') ?>">
+                        <a href="<?= base_url('/home') ?>">
                             <i class="las la-home icon"></i>
-                            <span class="text-item">Dashboard</span>
+                            <span class="text-item">Home</span>
                         </a>
                     </li>
                     <li>
-                        <a href="<?= base_url('doctor/nuevo_paciente') ?>">
+                        <a href="<?= base_url('/') ?>">
                             <i class="las la-user-plus icon"></i>
-                            <span class="text-item">Nuevo paciente</span>
+                            <span class="text-item">Nuevo Usuario</span>
                         </a>
                     </li>
                     <li>
-                        <a href="<?= base_url('doctor/busqueda_paciente') ?>">
+                        <a href="<?= base_url('/') ?>">
                             <i class="las la-search icon"></i>
-                            <span class="text-item">Búsqueda paciente</span>
+                            <span class="text-item">Nueva Categoria</span>
                         </a>
                     </li>
                 </ul>
