@@ -1,0 +1,1057 @@
+@charset "UTF-8";
+/*--------------------------------------------------------------
+# estilos generales
+--------------------------------------------------------------*/
+:root {
+  --accent: #04da97;
+  --border-width: 6px;
+  --border-radius: 55px;
+  --font-size: 30px;
+}
+
+@font-face {
+  font-family: "inter";
+  src: url("../fonts/Inter-VariableFont_opsz,wght.ttf") format("truetype");
+}
+* {
+  font-family: "inter", sans-serif;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.w-18 {
+  width: 18px !important;
+}
+
+.w-200 {
+  width: 200px !important;
+}
+
+.w-160 {
+  width: 160px !important;
+}
+
+.max-w-530 {
+  max-width: 530px !important;
+}
+
+.max-w-300 {
+  max-width: 300px !important;
+}
+
+.max-w-70 {
+  max-width: 70% !important;
+}
+
+.max-w-40 {
+  width: 30%;
+}
+
+.h-18 {
+  height: 18px !important;
+}
+
+.h-60 {
+  height: 60px !important;
+}
+
+.min-h-56 {
+  min-height: 180px !important;
+}
+
+.min-vh-80 {
+  min-height: 80vh;
+}
+
+.fs-18 {
+  font-size: 18px;
+}
+
+.fs-xs {
+  font-size: 12px;
+}
+
+.text-blue-600 {
+  color: #1b59b2;
+}
+
+.text-blue-400 {
+  color: #1d73ec;
+}
+
+.text-gray-600 {
+  color: #939dab;
+}
+
+.text-gray-400 {
+  color: #b7c1cf;
+}
+
+.lisst {
+  list-style: none;
+  padding-left: 0px;
+}
+
+.spacing-2 {
+  letter-spacing: 2px;
+}
+
+.shadow-card {
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+/*--------------------------------------------------------------
+# Estilos de login
+--------------------------------------------------------------*/
+.container-login {
+  width: 100%;
+  min-height: 100vh;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.content-login {
+  flex-basis: auto;
+  width: 50%;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.content-image-login {
+  flex-basis: auto;
+  width: 50%;
+  height: 100vh;
+  overflow: hidden;
+}
+.content-image-login img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.card-login {
+  max-width: 465px;
+  width: 90%;
+  height: 500px;
+}
+
+.icon-bg {
+  position: absolute;
+  left: -40px;
+  top: -100px;
+  transform: rotate(60deg);
+}
+.icon-bg svg {
+  width: 320px;
+  height: 320px;
+  opacity: 0.1;
+}
+
+@media (width < 768px) {
+  .content-login {
+    width: 100%;
+  }
+}
+/*--------------------------------------------------------------
+# Estilos de Contenedor general
+--------------------------------------------------------------*/
+.container-general {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.content-wrapper {
+  display: flex;
+  width: 100%;
+  min-height: 91.9vh;
+}
+
+.content-inner {
+  flex-grow: 1;
+  margin-left: 260px;
+  padding: 20px;
+  padding-bottom: 66px;
+  transition: margin-left 0.3s;
+  background-color: #e9f0f8;
+  position: relative;
+}
+
+/*--------------------------------------------------------------
+# Estilos de sidebar
+--------------------------------------------------------------*/
+.sidebar {
+  width: 260px;
+  height: 96.2vh;
+  position: fixed;
+  z-index: 3;
+  transition: width 0.3s;
+  border-right: 1px solid #eeeeef;
+  background-color: #fcfdff;
+}
+
+.head-sidebar {
+  width: 100%;
+  display: flex;
+  gap: 15px;
+  margin-bottom: 10px;
+  padding: 15px;
+  align-items: center; /* Asegura que los elementos estén alineados en el centro verticalmente */
+}
+.head-sidebar .btn-sidebar {
+  flex-shrink: 0; /* Evita que el botón cambie de tamaño */
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 1px solid #dceaff;
+  background-color: #dceaff;
+  color: #0d6efd;
+  transition: background-color 0.3s;
+}
+.head-sidebar .btn-sidebar:hover {
+  background-color: #cee2ff;
+}
+.head-sidebar .name-logo {
+  flex-grow: 1; /* Asegura que el logo ocupe el espacio restante */
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+}
+
+.title-sidebar {
+  margin-left: 15px;
+  font-size: 12px;
+  color: #939dab;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.menu li a {
+  text-decoration: none;
+  display: flex;
+  color: #757575;
+  padding: 12px 8px;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.sidebar .menu li {
+  position: relative;
+}
+
+.sidebar .menu li a .icon {
+  font-size: 20px;
+  margin: 0px 17px;
+}
+
+.sidebar .menu li a .arrow {
+  float: right;
+  margin-right: 15px;
+  margin-top: 5px;
+  transition: transform 0.3s;
+}
+
+.sidebar .title-link {
+  display: none;
+}
+
+.sidebar .menu li a:hover {
+  color: #000000;
+  background-color: #f6f6f6;
+}
+
+.sidebar .menu li a.active {
+  color: #0b5ed7;
+  background-color: #dceaff;
+}
+
+.sidebar .menu .submenu li a {
+  padding-left: 64px;
+}
+
+.sidebar .menu li a .text-item {
+  opacity: 1;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: width 0.3s, opacity 0.3s;
+}
+
+a[aria-expanded=true] .arrow {
+  transform: rotate(90deg);
+}
+
+.sidebar.mini {
+  width: 70px;
+}
+
+.sidebar.mini .head-sidebar {
+  gap: 0px;
+}
+
+.sidebar.mini .head-sidebar .name-logo {
+  flex-grow: 0;
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.sidebar.mini .menu li a .text-item {
+  width: 0;
+  min-width: 0;
+  /* Evita que el texto ocupe espacio cuando la sidebar es mini */
+  opacity: 0;
+  /* Oculta el texto suavemente */
+  transition: width 0.3s, opacity 0.3s;
+}
+
+.sidebar.mini .menu li a .arrow {
+  display: none;
+}
+
+.sidebar.mini .title-link {
+  display: block;
+  color: #0b5ed7;
+  background-color: #dceaff;
+  padding: 8px 8px;
+}
+
+.sidebar:not(.mini) .menu li a .text-item {
+  width: auto;
+  min-width: 50px;
+  opacity: 1;
+  transition: width 0.3s, opacity 0.3s;
+}
+
+.sidebar.mini ~ .content-inner {
+  margin-left: 70px;
+}
+
+.sidebar.mini .submenu {
+  position: absolute;
+  left: 70px; /* Ajusta este valor según el ancho de la sidebar mini */
+  top: 0;
+  z-index: 1000;
+  width: 190px; /* Ajusta según tus necesidades */
+  background-color: #ffffff; /* O el color que prefieras */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: none; /* Ocultar inicialmente */
+}
+
+.sidebar.mini .menu .submenu li a {
+  padding-left: 20px;
+}
+
+.sidebar.mini .submenu.show {
+  display: block;
+}
+
+.sidebar.no-transition,
+.content-inner.no-transition {
+  transition: none !important;
+}
+
+@media (width <= 991px) {
+  .sidebar {
+    margin-left: -260px;
+    transition: margin-left 0.3s;
+  }
+  .sidebar ~ .content-inner {
+    margin-left: 0px;
+  }
+  .sidebar.show {
+    z-index: 1000;
+    margin-left: 0px;
+    transition: margin-left 0.3s;
+  }
+}
+/*--------------------------------------------------------------
+# Estilos de navbar dentro del sistema
+--------------------------------------------------------------*/
+.input-search {
+  position: relative;
+  width: 35%;
+}
+.input-search input[type=search] {
+  width: 100%;
+  border-radius: 80px;
+  padding: 5px 10px;
+  border: solid 1px #c3cad4;
+  padding-left: 40px;
+}
+.input-search input[type=search]:focus {
+  outline: none;
+}
+.input-search i {
+  font-size: 20px;
+  position: absolute;
+  left: 13px;
+  top: 10px;
+  color: #c3cad4;
+}
+
+.userbox {
+  font-size: 0.8rem;
+}
+
+.image-user {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.image-user img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.image-user-1 {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.image-user-1 img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.navbar-color {
+  background: -webkit-linear-gradient(0deg, #f4f5f4,#93c392)!important;                                  
+}
+
+/*--------------------------------------------------------------
+# Estilos de footer sitema
+--------------------------------------------------------------*/
+.footer {
+  width: 100%;
+  padding: 7px 5px;
+  background-color: #ffffff;
+  color: #757575;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/*--------------------------------------------------------------
+# Estilos búsqueda de usuarios
+--------------------------------------------------------------*/
+.container-search-user {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(256px, 1fr));
+  grid-auto-rows: auto;
+  gap: 20px;
+}
+
+.image-circle-overlay {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.image-circle-overlay img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.image-circle-overlay-sm {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.image-circle-overlay-sm img {
+  width: 100%;
+  object-fit: cover;
+}
+
+/*--------------------------------------------------------------
+# Estilos linea de tiempo
+--------------------------------------------------------------*/
+.timeline-with-icons {
+  border-left: 1px solid hsl(0, 0%, 90%);
+  position: relative;
+  list-style: none;
+}
+
+.timeline-with-icons .timeline-item {
+  position: relative;
+}
+
+.timeline-with-icons .timeline-item:after {
+  position: absolute;
+  display: block;
+  top: 0;
+}
+
+.timeline-with-icons .timeline-icon {
+  position: absolute;
+  left: -54px;
+  background-color: hsl(217, 88.2%, 90%);
+  color: hsl(217, 88.8%, 35.1%);
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*--------------------------------------------------------------
+# Estilos de perfil dentro del sistema
+--------------------------------------------------------------*/
+.box-bg-profile {
+  width: 100%;
+  height: 20vh;
+  background-image: url("../images/profile/bg-2.webp");
+  background-position: center;
+  background-size: cover;
+}
+
+.box-info-user {
+  display: flex;
+  flex-wrap: wrap;
+}
+.box-info-user .box-image {
+  width: 160px;
+}
+.box-info-user .image-circle-overlay {
+  position: absolute;
+  top: -50px;
+  left: 10px;
+}
+
+@media (width <= 767px) {
+  .box-info-user {
+    display: flex;
+  }
+  .box-info-user .box-image {
+    width: 100%;
+    height: 90px;
+    flex-grow: 1;
+  }
+  .box-info-user .image-circle-overlay {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+.box-grid-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 32.7%);
+  grid-template-rows: repeat(3, 285px);
+  gap: 20px;
+}
+.box-grid-container .box-custom-items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px;
+}
+.box-grid-container .box-custom-items .chart {
+  grid-row-start: 1;
+  grid-row-end: 3;
+  grid-column-start: 1;
+  grid-column-end: 1;
+}
+.box-grid-container .box-custom-items .item-1 {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 2;
+  grid-column-end: 2;
+}
+.box-grid-container .box-custom-items .item-2 {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 2;
+  grid-column-end: 2;
+}
+.box-grid-container .appointment {
+  grid-row-start: 1;
+  grid-row-end: 4;
+  grid-column-start: 3;
+  grid-column-end: 4;
+}
+.box-grid-container .calendar {
+  grid-row-start: 2;
+  grid-row-end: 4;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+@media (width <= 1100px) {
+  .box-grid-container {
+    grid-template-columns: repeat(2, 48.5%);
+    grid-template-rows: repeat(5, 285px);
+  }
+  .box-grid-container .appointment {
+    grid-row-start: 4;
+    grid-row-end: 6;
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+}
+@media (width <= 767px) {
+  .box-grid-container {
+    grid-template-rows: repeat(6, 285px);
+  }
+  .box-grid-container .box-custom-items {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+  .box-grid-container .chart-2 {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+  .box-grid-container .calendar {
+    grid-row-start: 3;
+    grid-row-end: 5;
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+  .box-grid-container .appointment {
+    grid-row-start: 5;
+    grid-row-end: 7;
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+}
+@media (width <= 500px) {
+  .box-grid-container {
+    grid-template-columns: repeat(2, 47.6%);
+    grid-template-rows: 600px 250px repeat(4, 175px);
+  }
+  .box-grid-container .box-custom-items {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 300px 130px 130px;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+  .box-grid-container .box-custom-items .chart {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+  .box-grid-container .box-custom-items .item-1 {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+  .box-grid-container .box-custom-items .item-2 {
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+  .box-grid-container .chart-2 {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+  .box-grid-container .calendar {
+    grid-row-start: 3;
+    grid-row-end: 5;
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+  .box-grid-container .appointment {
+    grid-row-start: 5;
+    grid-row-end: 7;
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+}
+/*--------------------------------------------------------------
+# Estilos de Fullcalendar
+--------------------------------------------------------------*/
+/* Estilos para los botones */
+.fc-button {
+  background-color: #f7f7f7 !important;
+  color: #a5aebb !important;
+  border: 1px solid #f7f7f7 !important;
+}
+
+.fc-button:hover {
+  background-color: #e9e9e9 !important;
+}
+
+.fc-toolbar-title {
+  font-size: clamp(1rem, 2.5vw, 1.5rem) !important;
+  color: #9ba7b8;
+}
+.fc-toolbar-title::first-letter {
+  text-transform: uppercase !important;
+}
+
+.fc-col-header-cell {
+  background-color: transparent;
+}
+
+/* Colores para los números de los días */
+.fc-daygrid-day-number {
+  color: #9a9ea2;
+  text-decoration: none; /* Color azul claro para todos los números */
+}
+
+.fc-col-header-cell-cushion {
+  color: #9a9ea2 !important;
+  font-weight: 400 !important;
+  text-decoration: none !important;
+}
+
+/*--------------------------------------------------------------
+# Estilos de dashboard doctor
+--------------------------------------------------------------*/
+.container-list-user {
+  width: 100%;
+  height: 95%;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+/*--------------------------------------------------------------
+# Estilos de navbar anuncios
+--------------------------------------------------------------*/
+.nav-content {
+  font-size: 14px !important;
+}
+.nav-content .nav-item {
+  font-weight: 600;
+}
+.nav-content .btn {
+  font-size: 14px !important;
+}
+.nav-content .nav-link:hover {
+  color: #0d6efd !important;
+}
+
+.box-mobile {
+  width: auto;
+}
+
+@media (width < 768px) {
+  .box-mobile {
+    width: 100%;
+  }
+}
+/*--------------------------------------------------------------
+# Estilos de pagina principal landing
+--------------------------------------------------------------*/
+.mark-image {
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.mark-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.btn-pill {
+  transition: all 0.3s ease-in-out;
+  font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+  padding: 0.9rem 1rem;
+  border: 1px solid #0d6efd;
+  border-radius: 80px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-color: #0d6efd;
+  color: #fff;
+  font-weight: 600;
+}
+
+.btn-pill:hover {
+  background-color: #0b5ed7;
+}
+
+/*--------------------------------------------------------------
+# Estilos de switch de formularios de registro landing
+--------------------------------------------------------------*/
+.toggleContainer {
+  position: relative;
+  padding: 4px 3px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 300px;
+  border: 3px solid #c3cad4;
+  border-radius: 80px;
+  background: #b1c1d8;
+  font-weight: bold;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.toggleContainer::before {
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  left: 0%;
+  border-radius: 80px;
+  background: #0d6efd;
+  transition: all 0.3s;
+}
+
+.toggleCheckbox:checked + .toggleContainer::before {
+  left: 50%;
+}
+
+.toggleContainer div {
+  padding: 6px;
+  text-align: center;
+  z-index: 1;
+}
+
+.toggleCheckbox {
+  display: none;
+}
+
+.toggleCheckbox:checked + .toggleContainer div:first-child {
+  color: white;
+  transition: color 0.3s;
+}
+
+.toggleCheckbox:checked + .toggleContainer div:last-child {
+  color: #ffffff;
+  transition: color 0.3s;
+}
+
+.toggleCheckbox + .toggleContainer div:first-child {
+  color: #ffffff;
+  transition: color 0.3s;
+}
+
+.toggleCheckbox + .toggleContainer div:last-child {
+  color: white;
+  transition: color 0.3s;
+}
+
+/*--------------------------------------------------------------
+# Estilos de cards de precios landing
+--------------------------------------------------------------*/
+.container-price {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(306px, 1fr));
+  grid-auto-rows: auto;
+  gap: 20px;
+}
+.container-price .card-pricing {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.container-price .card-pricing h1 {
+  font-size: clamp(1.5rem, 2.5vw, 3rem);
+  text-transform: uppercase;
+  font-weight: 800;
+  background: linear-gradient(90deg, #1488CC, #2B32B2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+.container-price .card-pricing h5 {
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
+  text-transform: uppercase;
+  color: #aebaca;
+  text-align: center;
+}
+.container-price .card-pricing .price {
+  width: 100%;
+  height: 80px;
+  clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+  background: linear-gradient(to right, #1488cc, #2b32b2);
+  font-size: 3rem;
+  font-size: clamp(3rem, 3.2vw, 5rem);
+  color: #ffffff;
+  display: flex;
+  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+}
+.container-price .card-pricing .price .currency,
+.container-price .card-pricing .price .decimals {
+  font-size: clamp(0.8rem, 3.2vw, 1.3rem);
+  vertical-align: top;
+}
+.container-price .card-pricing .price .amount {
+  line-height: 1;
+}
+.container-price .card-pricing .price .decimals {
+  margin-left: 0.1em;
+}
+.container-price .card-pricing .price .currency {
+  margin-right: 0.1em;
+}
+.container-price .card-pricing .feactures {
+  list-style: none;
+}
+
+/*--------------------------------------------------------------
+# Estilos de seleccion de tipo de perfil (Doctor, Clinica, Hospital) landing
+--------------------------------------------------------------*/
+.container-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(306px, 1fr));
+  grid-auto-rows: auto;
+  gap: 20px;
+}
+
+/*--------------------------------------------------------------
+# Estilos de seleccion de Anuncios publicitarios
+--------------------------------------------------------------*/
+.container-advertisement {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-auto-rows: auto;
+  gap: 20px;
+}
+
+.title-truncate {
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Número de líneas a mostrar */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  max-height: 4.5em; /* Ajustar en función del número de líneas y tamaño de la fuente */
+}
+
+.title-truncate-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* Número de líneas a mostrar */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  max-height: 4em; /* Ajustar en función del número de líneas y tamaño de la fuente */
+}
+
+.text-truncate-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Número de líneas a mostrar */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  max-height: 4.5em; /* Ajustar en función del número de líneas y tamaño de la fuente */
+}
+
+.text-truncate-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Número de líneas a mostrar */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  max-height: 4.5em; /* Ajustar en función del número de líneas y tamaño de la fuente */
+}
+
+/*--------------------------------------------------------------
+# Estilos de anuncio landing
+--------------------------------------------------------------*/
+.date-event {
+  flex-basis: auto;
+  width: 80px;
+}
+
+/*--------------------------------------------------------------
+# Estilos de busqueda de doctores, clinicas, etc. (landing)
+--------------------------------------------------------------*/
+.container-search-card {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(235px, 1fr));
+  grid-auto-rows: auto;
+  gap: 15px;
+}
+
+.footer-page {
+  width: 100%;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  background-color: #f4f4f5;
+}
+.footer-page .text-footer {
+  font-size: clamp(0.8rem, 2.5vw, 1rem);
+}
+
+/*--------------------------------------------------------------
+# Estilos de pefil de usuarios
+--------------------------------------------------------------*/
+.box-profile .img-bg {
+  width: 100%;
+  height: 150px;
+  background-image: url("../images/profile/bg-3.jpg");
+  background-position: center right;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.box-profile .box-photo {
+  width: 100%;
+  min-height: 50px;
+  position: relative;
+}
+.box-profile .box-photo .photo {
+  width: 110px;
+  height: 110px;
+  overflow: hidden;
+  border-radius: 50%;
+  position: absolute;
+  top: -62.5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.box-profile .box-photo .photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.box-profile .profile-name {
+  width: 80%;
+  margin: 0 auto;
+  line-height: 1.2;
+}
+
+@media (width < 500px) {
+  .box-profile .profile-name {
+    width: 100%;
+  }
+}
+.link-social {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0d6efd;
+  color: #ffffff;
+  border-radius: 50%;
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=style.css.map */
