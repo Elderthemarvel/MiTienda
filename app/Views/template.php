@@ -80,12 +80,6 @@
                             <span class="text-item">Nuevo Usuario</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="<?= base_url('/') ?>">
-                            <i class="las la-search icon"></i>
-                            <span class="text-item">Nueva Categoria</span>
-                        </a>
-                    </li>
                 </ul>
             </aside>
             <!-- Navbar -->
