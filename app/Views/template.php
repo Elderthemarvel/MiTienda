@@ -98,6 +98,7 @@
         </section>
     </main>
     <!-- Contenedor general -->
+    
 
     <script src="<?= base_url('js/bootstrap.bundle.js') ?>"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
