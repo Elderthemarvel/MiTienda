@@ -4,6 +4,14 @@ namespace App\Controllers;
 
 class Home extends BaseController
 {
+    protected $perfil;
+
+    public function __construct()
+    {
+       
+        $this->perfil = 1;
+    }
+
     public function index(): string
     {
         return view('login/login');
@@ -11,6 +19,7 @@ class Home extends BaseController
 
     public function dashboard(): string
     {
-        return view('template');
+        $data['perfil'] = $this->perfil;
+        return view('home',$data);
     }
 }

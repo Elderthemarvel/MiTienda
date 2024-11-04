@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Login | Saluredi</title>
+        <title>Login | Mi tienda</title>
 
         <!-- link styles -->
         <link rel="stylesheet" href="<?= base_url('/css/bootstrap.css')?>">
@@ -25,7 +25,7 @@
                         </div>     
                     </header>
                     <article class="body-login">
-                        <form v-on:submit.prevent="Login()" ref="login" autocomplete="off">
+                        <form v-on:submit.prevent="Login()" id="login" autocomplete="off">
                             <div class="mb-3">
                                 <label for="username" class="form-label fw-medium text-body-tertiary">Usuario:</label>
                                 <input type="text" class="form-control" id="username" name="user" placeholder="Ingresa tu usuario aqui">
@@ -41,11 +41,11 @@
                     </article>
                 </section>
                 
-                <div class="icon-bg">
+                <div class="icon-bg ">
                     <img src="<?= base_url('images/discount.png')?>" alt="marca de agua">
                 </div>
             </article>
-            <article class="d-md-flex d-none justify-content-center align-items-center content-image-login">
+            <article class="d-md-flex d-none justify-content-center align-items-center content-image-login bg-light">
                 <img src="<?= base_url('images/logo.png')?>" alt="logo">
             </article>
         </main>
@@ -53,8 +53,19 @@
         <!-- /Container login -->
     <script src="<?= base_url('/js/bootstrap.bundle.js')?>"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.js"></script>
+    <script src="<?= base_url('/js/axios.js') ?>"></script>
+
+    <script>
+        var form = document.getElementById('login');
+        axios.post('<?= base_url('login') ?>',)
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+    </script>
+
 
     </body>
 </html>

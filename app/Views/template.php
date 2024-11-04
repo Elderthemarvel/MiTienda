@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing | Saluredi</title>
+    <title>Landing | Mi tienda</title>
 
     <!-- link styles -->
     <link rel="stylesheet" href="<?= base_url('/css/bootstrap.css') ?>">
@@ -41,14 +41,12 @@
                                 <img src="<?= base_url('images/avatar.png')?>"alt="logo">
                                 </div>
                                 <div>
-                                    <div class="fw-semibold">Hola, Wilder</div>
+                                    <div class="fw-semibold">Hola, Elder</div>
                                    <!-- <div>
                                         <a href="" class="nav-link text-primary">Ver mi perfil</a>
                                     </div>-->
                                 </div>
                             </li>
-                            <!-- <li><a class="dropdown-item small" href="#"><i class="las la-hand-holding-usd fs-5 me-2"></i> Mi suscripción</a></li>
-                            <li><a class="dropdown-item small" href="#"><i class="las la-cog fs-5 me-2"></i> Configuración</a></li>-->
                             <li><a class="dropdown-item small text-danger" href="#"><i class="las la-power-off fs-5 me-2"></i> Cerrar sesión</a></li> 
                         </ul>
                     </div>
@@ -67,20 +65,12 @@
                     </div>
                 </header>
                 <p class="title-sidebar">Menú</p>
-                <ul class="lisst menu">
-                    <li>
-                        <a href="<?= base_url('/home') ?>">
-                            <i class="las la-home icon"></i>
-                            <span class="text-item">Home</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?= base_url('/') ?>">
-                            <i class="las la-user-plus icon"></i>
-                            <span class="text-item">Nuevo Usuario</span>
-                        </a>
-                    </li>
-                </ul>
+                <?php if ($perfil==1) {
+                    include('menu_admin.php');
+                }else{
+                    include('menu_ventas.php');
+                } ?>
+                
             </aside>
             <!-- Navbar -->
             <section class="content-inner container-fluid">
@@ -102,7 +92,7 @@
 
     <script src="<?= base_url('js/bootstrap.bundle.js') ?>"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.js"></script>
+    <script src="<?= base_url('/js/axios.js') ?>"></script>
     <script src="<?= base_url('/js/main.js') ?>"></script>
     <?= $this->renderSection("scripts"); ?>
 </body>
