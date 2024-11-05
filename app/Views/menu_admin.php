@@ -19,7 +19,7 @@
         </a>
     </li>
     <li>
-        <a href="<?= base_url('/new_producto');') ?>">
+        <a href="<?= base_url('/nuevo_producto') ?>">
             <i class="las la-clipboard-list icon"></i>
             <span class="text-item">Nuevo Producto</span>
         </a>

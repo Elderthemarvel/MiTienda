@@ -16,10 +16,16 @@ class Home extends BaseController
     {
         return view('login/login');
     }
+     public function nuevo_producto(){
+        return view('nuevo_producto/nuevo_producto');
+    }
 
     public function dashboard(): string
     {
         $data['perfil'] = $this->perfil;
         return view('home',$data);
     }
+
+
+   
 }
