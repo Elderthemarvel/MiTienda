@@ -16,8 +16,10 @@ class Home extends BaseController
     {
         return view('login/login');
     }
-     public function nuevo_producto(){
-        return view('nuevo_producto/nuevo_producto');
+
+    public function nuevo_producto(){
+        $data['perfil'] = $this->perfil;
+        return view('administrador/nuevo_producto',$data);
     }
 
     public function dashboard(): string
