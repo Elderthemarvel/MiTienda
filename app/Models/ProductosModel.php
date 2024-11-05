@@ -7,5 +7,5 @@ class ProductosModel extends Model{
     protected $table      = 'productos';
     // Uncomment below if you want add primary key
     protected $primaryKey = 'id';
-    protected $allowedFields=['id_categoria','nombre','precio_venta','stock','created_at','i´dated_at','delete_at'];
+    protected $allowedFields=['id_categoria','nombre','precio_venta','stock','created_at','updated_at','delete_at'];
 }
