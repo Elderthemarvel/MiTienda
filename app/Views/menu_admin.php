@@ -7,7 +7,7 @@
         </a>
     </li>
     <li>
-        <a href="">
+        <a href="<?= base_url('/usuario') ?>">
             <i class="las la-user-plus icon"></i>
             <span class="text-item">Nuevo Usuario</span>
         </a>
