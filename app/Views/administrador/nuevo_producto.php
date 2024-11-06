@@ -8,8 +8,13 @@
         <label for="id">ID:</label>
         <input type="number" id="id" name="id" required><br><br>
 
-        <label for="id_categoria">ID Categoría:</label>
-        <input type="number" id="id_categoria" name="id_categoria" required><br><br>
+        <label for="id_categoria">Categoría:</label>
+        <select name="" id="">
+                <option hidden>Seleccione una opcion</option>
+            <?php foreach ($categorias as $categoria) : ?>
+                <option value="<?= $categoria['id'] ?>"><?= $categoria['nom_categoria'] ?></option>
+            <?php endforeach ?>
+        </select>
 
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre" required><br><br>
