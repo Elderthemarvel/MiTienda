@@ -9,3 +9,4 @@ $routes->get('/', 'Home::index');
 $routes->get('/home', 'Home::dashboard');
 $routes->get('/login', 'Auth::login');
 $routes->get('/nuevo_producto', 'Home::nuevo_producto');
+$routes->get('/usuario', 'UsuarioController::verusuarios');
