@@ -13,7 +13,7 @@ class UsuarioController extends Controller
         $datosusuario['perfil'] = 1;
 
         print_r($datosusuario);
-        return view ('administrador/nuevo_user',$datosusuario);
+        return view ('administrador/usuarios',$datosusuario);
     }
    
     
