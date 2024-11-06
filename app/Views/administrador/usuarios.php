@@ -1,6 +1,10 @@
 <?= $this->extend('template') ?>
 
 <?= $this->section('contenido') ?>
+<h1>Usuarios</h1>
+<a href="<?= base_url('nuevo_user') ?>" class="btn btn-primary mb-3">
+            Asignar nuevo usuario
+</a>
 <table class="table table-striped table-hover pt-2" id="dataTable">
     <thead>
         <tr>
