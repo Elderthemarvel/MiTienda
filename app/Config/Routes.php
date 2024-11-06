@@ -10,3 +10,4 @@ $routes->get('/home', 'Home::dashboard');
 $routes->get('/login', 'Auth::login');
 $routes->get('/nuevo_producto', 'Home::nuevo_producto');
 $routes->get('/usuario', 'UsuarioController::verusuarios');
+$routes->get('/nuevo_user', 'UsuarioController::nuevousuario');
