@@ -1,6 +1,8 @@
 <?= $this->extend('template') ?>
 
 <?= $this->section('contenido') ?>
+
+
 <h2>Formulario de Producto</h2>
     <form action="/ruta_de_envio" method="POST">
         <label for="id">ID:</label>
@@ -17,15 +19,6 @@
 
         <label for="stock">Stock:</label>
         <input type="number" id="stock" name="stock" required><br><br>
-
-        <label for="created_at">Fecha de Creación:</label>
-        <input type="datetime-local" id="created_at" name="created_at" required><br><br>
-
-        <label for="updated_at">Fecha de Actualización:</label>
-        <input type="datetime-local" id="updated_at" name="updated_at"><br><br>
-
-        <label for="deleted_at">Fecha de Eliminación:</label>
-        <input type="datetime-local" id="deleted_at" name="deleted_at"><br><br>
 
         <button type="submit">Enviar</button>
     </form>
