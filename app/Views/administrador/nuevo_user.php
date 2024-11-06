@@ -3,7 +3,8 @@
 <?= $this->section('contenido') ?>
 <body>
     <div class="container mt-5">
-        <h2>Formulario de Usuario</h2>
+        <h1>Formulario de Usuario</h1>
+
         <form action="<?=base_url('/guardar_usuario')?>" method="post" class="row g-3 align-items-center">
  
             <div class="col-md-2">
