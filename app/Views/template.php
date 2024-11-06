@@ -47,7 +47,7 @@
                                     </div>-->
                                 </div>
                             </li>
-                            <li><a class="dropdown-item small text-danger" href="#"><i class="las la-power-off fs-5 me-2"></i> Cerrar sesión</a></li> 
+                            <li><a class="dropdown-item small text-danger" href="<?= base_url('/logout') ?>"><i class="las la-power-off fs-5 me-2"></i> Cerrar sesión</a></li> 
                         </ul>
                     </div>
                 </section>

@@ -56,13 +56,37 @@
     <script src="<?= base_url('/js/axios.js') ?>"></script>
 
     <script>
-        var form = document.getElementById('login');
-        axios.post('<?= base_url('login') ?>',)
-        .then(function (response) {
-            console.log(response);
-        })
-        .catch(function (error) {
-            console.log(error);
+        var vue = new Vue({
+            el: '#app',
+            data: {
+                user: '',
+                pass: ''
+            },
+            methods: {
+                Login: function () {
+                    var form = document.getElementById('login');
+                    var formData = new FormData(form);
+                    axios.post('<?= base_url('login') ?>', formData)
+                    .then(function (response) {
+                        console.log(response);
+                        if (response.data.success) {
+                            
+                            window.location.href = '<?= base_url('home') ?>';
+                                
+                        } else {
+                            Swal.fire({
+                                title: '¡Error!',
+                                text: response.data.message,
+                                icon: 'error',
+                                confirmButtonText: 'Aceptar'
+                            });
+                        }
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+                }
+            }
         });
     </script>
 

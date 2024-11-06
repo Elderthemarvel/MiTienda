@@ -4,51 +4,58 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use CodeIgniter\HTTP\ResponseInterface;
-use App\Models\UserModel;
+use App\Models\UsuariosModel;
 
 class Auth extends BaseController
 {
     public function login()
     {
-        helper(['form']); 
+        $post = $this->request->getPost();
         
-        if ($this->request->getMethod() == 'post') {
-            $rules = [
-                'username' => 'required',
-                'password' => 'required|min_length[6]'
-            ];
+        if ($post) {
+            
+            $userModel = new UsuariosModel();
+            $username = $post['user'];
+            $password = $post['pass'];
 
-            if ($this->validate($rules)) {
-                $userModel = new UserModel();
-                $username = $this->request->getVar('username');
-                $password = $this->request->getVar('password');
+            $user = $userModel->where('correo', $username)->first();
 
-                $user = $userModel->where('username', $username)->first();
+            if ($user && password_verify($password, $user['pass'])) {
+                $session = session();
+                $session->set([
+                    'user_id' => $user['id'],
+                    'nombre' => $user['nombre'],
+                    'apellido' => $user['apellido'],
+                    'tipo'=> $user['id_tipo'],
+                    'logged_in' => true
+                ]);
 
-                if ($user && password_verify($password, $user['password'])) {
-                    $session = session();
-                    $session->set([
-                        'user_id' => $user['id'],
-                        'username' => $user['username'],
-                        'logged_in' => true
-                    ]);
-
-                    return redirect()->to('/dashboard'); // Redirige a una página segura
-                } else {
-                    return redirect()->back()->with('error', 'Credenciales incorrectas.');
-                }
+                $response = [
+                    'success' => true,
+                    'message' => 'Bienvenido.'
+                ];
+                return $this->response->setJSON($response);
             } else {
-                return redirect()->back()->with('error', 'Por favor, ingresa datos válidos.');
+                $response = [
+                    'success' => false,
+                    'message' => 'Credenciales incorrectas.'
+                ];
+                return $this->response->setJSON($response);
             }
+          
+        }else{
+            $response = [
+                'success' => false,
+                'message' => 'Datos invalidos.'
+            ];
+            return $this->response->setJSON($response);
         }
-
-        echo view('auth/login'); // Cargar la vista de login
     }
 
     public function logout()
     {
         session()->destroy();
-        return redirect()->to('/login');
+        return redirect()->to('/');
     }
 }
 
