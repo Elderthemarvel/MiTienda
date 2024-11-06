@@ -9,7 +9,7 @@
     <li>
         <a href="<?= base_url('/usuario') ?>">
             <i class="las la-user-plus icon"></i>
-            <span class="text-item">Usuario</span>
+            <span class="text-item">Usuarios</span>
         </a>
     </li>
     <li>
