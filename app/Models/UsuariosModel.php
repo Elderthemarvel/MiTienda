@@ -11,7 +11,7 @@ class UsuariosModel extends Model
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = true;
-    protected $protectFields    = False;
+    protected $protectFields    = false;
     protected $allowedFields    = [];
 
     protected bool $allowEmptyInserts = false;
@@ -21,7 +21,7 @@ class UsuariosModel extends Model
     protected array $castHandlers = [];
 
     // Dates
-    protected $useTimestamps = True;
+    protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';

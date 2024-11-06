@@ -18,7 +18,9 @@ class Home extends BaseController
     }
 
     public function nuevo_producto(){
+        $categorias = model('CategoriasModel');
         $data['perfil'] = $this->perfil;
+        $data['categorias'] = $categorias->findAll();
         return view('administrador/nuevo_producto',$data);
     }
 

@@ -23,4 +23,4 @@ document
 
   // Añadir un event listener al redimensionar la ventana
   window.addEventListener("resize", checkWindowSize);
-});
+
