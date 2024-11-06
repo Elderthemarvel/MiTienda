@@ -3,22 +3,19 @@
 <?= $this->section('contenido') ?>
 <body>
     <div class="container mt-5">
-        <h1>Formulario de Usuario</h1>
+        <h1 class="mb-5">Formulario de Usuario</h1>
 
         <form action="<?=base_url('/guardar_usuario')?>" method="post" class="row g-3 align-items-center">
- 
-            <div class="col-md-2">
-                <label for="id" class="form-label">ID</label>
-            </div>
-            <div class="col-md-4">
-                <input type="number" class="form-control form-control-sm" id="id" name="id" maxlength="30" required>
-            </div>
 
             <div class="col-md-2">
-                <label for="id_tipo" class="form-label">ID Tipo</label>
+                <label for="id_tipo" class="form-label">Tipo</label>
             </div>
             <div class="col-md-4">
-                <input type="number" class="form-control form-control-sm" id="id_tipo" name="id_tipo" maxlength="30" required>
+                <select class="form-control form-control-sm" name="id_tipo" id="id_tipo" required>
+                    <option hidden>Seleccione el tipo</option>
+                    <option value="1">Administrador</option>
+                    <option value="2">Vendedor</option>
+                </select>
             </div>
 
             <div class="col-md-2">
@@ -55,9 +52,9 @@
             <div class="col-md-4">
                 <select class="form-select form-select-sm" id="genero" name="genero" required>
                     <option value="">Seleccione</option>
-                    <option value="masculino">Masculino</option>
-                    <option value="femenino">Femenino</option>
-                    <option value="otro">Otro</option>
+                    <option value="M">Masculino</option>
+                    <option value="F">Femenino</option>
+                    <option value="O">Otro</option>
                 </select>
             </div>
 
