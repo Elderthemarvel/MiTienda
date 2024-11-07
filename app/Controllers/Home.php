@@ -17,12 +17,7 @@ class Home extends BaseController
         return view('login/login');
     }
 
-    public function nuevo_producto(){
-        $categorias = model('CategoriasModel');
-        $data['perfil'] = $this->perfil;
-        $data['categorias'] = $categorias->findAll();
-        return view('administrador/nuevo_producto',$data);
-    }
+    
 
     public function dashboard(): string
     {

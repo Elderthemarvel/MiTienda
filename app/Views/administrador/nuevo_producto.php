@@ -4,29 +4,28 @@
 
 
 <h2>Formulario de Producto</h2>
-    <form action="/ruta_de_envio" method="POST">
-        <label for="id">ID:</label>
-        <input type="number" id="id" name="id" required><br><br>
-
-        <label for="id_categoria">Categoría:</label>
-        <select name="" id="">
-                <option hidden>Seleccione una opcion</option>
-            <?php foreach ($categorias as $categoria) : ?>
-                <option value="<?= $categoria['id'] ?>"><?= $categoria['nom_categoria'] ?></option>
-            <?php endforeach ?>
-        </select>
-
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required><br><br>
-
-        <label for="precio_venta">Precio de Venta:</label>
-        <input type="number" step="0.01" id="precio_venta" name="precio_venta" required><br><br>
-
-        <label for="stock">Stock:</label>
-        <input type="number" id="stock" name="stock" required><br><br>
-
-        <button type="submit">Enviar</button>
-    </form>
+<div class="container mt-5">
+        <h2 class="mb-4">Agregar Producto</h2>
+        <form action="<?= site_url('/producto/create') ?>" method="post">
+            <div class="mb-3">
+                <label for="id_categoria" class="form-label">ID Categoría</label>
+                <input type="number" class="form-control" id="id_categoria" name="id_categoria" required>
+            </div>
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" required>
+            </div>
+            <div class="mb-3">
+                <label for="precio_venta" class="form-label">Precio de Venta</label>
+                <input type="number" class="form-control" id="precio_venta" name="precio_venta" required>
+            </div>
+            <div class="mb-3">
+                <label for="stock" class="form-label">Stock</label>
+                <input type="number" class="form-control" id="stock" name="stock" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar Producto</button>
+        </form>
+    </div>
 
 
 <?= $this->endSection() ?>
