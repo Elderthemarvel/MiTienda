@@ -28,7 +28,10 @@ class UsuariosModel extends Model
     protected $deletedField  = 'deleted_at';
 
     // Validation
-    protected $validationRules      = [];
+    protected $validationRules      = 
+    [
+        'correo' => 'is_unique[usuarios.correo]',
+    ];
     protected $validationMessages   = [];
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;
