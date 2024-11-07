@@ -23,8 +23,7 @@
             <th>Género</th>
             <th>Fecha de Nacimiento</th>
             <th>Creado el</th>
-            <th>Actualizado el</th>
-            <th>Eliminado el</th>
+        
         </tr>
     </thead>
     <tbody>
@@ -39,8 +38,7 @@
                     <td><?php echo $registro['genero']; ?></td>
                     <td><?php echo $registro['fecha_nacimiento']; ?></td>
                     <td><?php echo $registro['created_at']; ?></td>
-                    <td><?php echo $registro['updated_at']; ?></td>
-                    <td><?php echo $registro['deleted_at']; ?></td>
+
                 </tr>
             <?php endforeach; ?>
         <?php else : ?>
