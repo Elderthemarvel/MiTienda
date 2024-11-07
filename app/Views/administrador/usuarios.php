@@ -2,6 +2,13 @@
 
 <?= $this->section('contenido') ?>
 <h1>Usuarios</h1>
+
+<?php if (session()->getFlashdata('success')) : ?>
+    <div class="alert alert-success">
+        <?= session()->getFlashdata('success') ?>
+    </div>
+<?php endif; ?>
+
 <a href="<?= base_url('nuevo_user') ?>" class="btn btn-primary mb-3">
             Asignar nuevo usuario
 </a>
