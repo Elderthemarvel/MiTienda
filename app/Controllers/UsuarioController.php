@@ -23,12 +23,6 @@ class UsuarioController extends Controller
    
     public function nuevousuario()
     {
-        //$usuarios = new UsuariosModel();
-        //$datosusuario['perfil'] = $this->perfil;
-        //$datosusuario['datosusuario']=$usuarios->findAll();
-        //$datosusuario['perfil'] = 1;
-
-        //print_r($datosusuario);
         $datosusuario['perfil'] = 1;
         return view ('administrador/nuevo_user',$datosusuario);
     }
