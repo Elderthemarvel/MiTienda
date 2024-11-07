@@ -35,7 +35,7 @@ class UsuarioController extends Controller
         'id_tipo' => $this->request->getPost('id_tipo'),
         'nombre' => $this->request->getPost('nombre'),
         'apellido' => $this->request->getPost('apellido'),
-        'pass' => $this->request->getPost('pass'),
+        'pass' => password_hash($this->request->getPost('pass'), PASSWORD_DEFAULT),
         'correo' => $this->request->getPost('correo'),
         'genero' => $this->request->getPost('genero'),
         'fecha_nacimiento' => $this->request->getPost('fecha_nacimiento'),
