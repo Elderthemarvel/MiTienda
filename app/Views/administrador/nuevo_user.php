@@ -5,14 +5,28 @@
     <div class="container mt-5">
         <h1 class="mb-5">Formulario de Usuario</h1>
 
-        <form action="<?=base_url('/guardar_usuario')?>" method="post" class="row g-3 align-items-center">
+        <!-- Bloque para mostrar mensajes de error -->
+        <?php if (session()->getFlashdata('error')) : ?>
+            <div class="alert alert-danger">
+                <?= session()->getFlashdata('error') ?>
+            </div>
+        <?php endif; ?>
 
+        <?php if (session()->getFlashdata('errors')) : ?>
+            <div class="alert alert-danger">
+                <?php foreach (session()->getFlashdata('errors') as $error) : ?>
+                    <p><?= esc($error) ?></p>
+                <?php endforeach ?>
+            </div>
+        <?php endif; ?>
+
+        <form action="<?= base_url('/guardar_usuario') ?>" method="post" class="row g-3 align-items-center">
             <div class="col-md-2">
                 <label for="id_tipo" class="form-label">Tipo</label>
             </div>
             <div class="col-md-4">
-                <select class="form-control form-control-sm" name="id_tipo" id="id_tipo" required>
-                    <option hidden>Seleccione el tipo</option>
+                <select class="form-select form-select-sm" name="id_tipo" id="id_tipo" required>
+                    <option value="">Seleccione tipo de usuario</option>
                     <option value="1">Administrador</option>
                     <option value="2">Vendedor</option>
                 </select>
@@ -51,7 +65,7 @@
             </div>
             <div class="col-md-4">
                 <select class="form-select form-select-sm" id="genero" name="genero" required>
-                    <option value="">Seleccione</option>
+                    <option value="">Seleccione un valor</option>
                     <option value="M">Masculino</option>
                     <option value="F">Femenino</option>
                     <option value="O">Otro</option>
@@ -72,7 +86,6 @@
             </div>
         </form>
     </div>
-
 </body>
 
 <?= $this->endSection() ?>
