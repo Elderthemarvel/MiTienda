@@ -5,12 +5,17 @@ use CodeIgniter\Controller;
 use App\Models\UsuariosModel;
 class UsuarioController extends Controller
 {
+    public function __construct()
+    {
+       
+        $this->perfil = 1;
+    }
+
     public function verusuarios()
     {
         $usuarios = new UsuariosModel();
-        //$datosusuario['perfil'] = $this->perfil;
+        $datosusuario['perfil'] = $this->perfil;
         $datosusuario['datosusuario']=$usuarios->findAll();
-        $datosusuario['perfil'] = 1;
 
        // print_r($datosusuario);
         return view ('administrador/usuarios',$datosusuario);
@@ -18,6 +23,12 @@ class UsuarioController extends Controller
    
     public function nuevousuario()
     {
+        //$usuarios = new UsuariosModel();
+        //$datosusuario['perfil'] = $this->perfil;
+        //$datosusuario['datosusuario']=$usuarios->findAll();
+        //$datosusuario['perfil'] = 1;
+
+        //print_r($datosusuario);
         $datosusuario['perfil'] = 1;
         return view ('administrador/nuevo_user',$datosusuario);
     }
