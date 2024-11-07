@@ -12,7 +12,7 @@ $routes->get('/logout', 'Auth::logout');
 
 $routes->get('/usuario', 'UsuarioController::verusuarios');
 $routes->get('/nuevo_user', 'UsuarioController::nuevousuario');
-
+$routes->post('/guardar_usuario', 'UsuarioController::registrousuario');
 $routes->get('administrador/productos', 'ProductosController::verproductos');
 /*
 $routes->get('productos', 'ProductosController::productos');
