@@ -53,7 +53,7 @@ class UsuarioController extends Controller
         
     } catch (\Exception $e) {
         // Si hay un error (como un duplicado en el correo), mostramos un mensaje
-        return redirect()->back()->withInput()->with('error', 'El correo ya existe. Intenta con otro.');
+        return redirect()->back()->withInput()->with('error', 'El correo ya existe. Intenta con otro');
     }
 }
 public function marcaeEliminado($id)
@@ -70,5 +70,41 @@ public function marcaeEliminado($id)
         return redirect()->to('/usuario')->with('success', 'Usuario no encontrado');
     }
 }
+
+public function formulariomodificar($id)
+{
+    $usuarios = new UsuariosModel();
+    $usuario = $usuarios->find($id);
+
+    if ($usuario) {
+        return view('administrador/modificar_usuario', ['usuario' => $usuario,'perfil' => 1]);
+    } else {
+        return redirect()->to('/usuario')->with('error', 'Ha ocurrido un error, no se puede modificar el registro');
+    }
+}
+public function modificarusuario($id)
+    {
+        $usuarios = new UsuariosModel();
+
+        // Valida si el usuario existe
+        if (!$usuarios->find($id)) {
+            return redirect()->to('/verusuarios')->with('error', 'Usuario no encontrado');
+        }
+
+        // Captura los datos
+        $data = [
+            'id_tipo' => $this->request->getPost('id_tipo'),
+            'nombre' => $this->request->getPost('nombre'),
+            'apellido' => $this->request->getPost('apellido'),
+            'correo' => $this->request->getPost('correo'),
+            'genero' => $this->request->getPost('genero'),
+            'fecha_nacimiento' => $this->request->getPost('fecha_nacimiento'),
+            'pass' => password_hash($this->request->getPost('pass'), PASSWORD_DEFAULT)
+            ];
+    
+            $usuarios->update($id, $data);
+
+        return redirect()->to('/usuario')->with('success', 'Usuario actualizado correctamente');
+    }
 
 }
