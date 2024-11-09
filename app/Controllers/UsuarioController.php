@@ -48,7 +48,7 @@ class UsuarioController extends Controller
             return redirect()->back()->withInput()->with('errors', $usuario->errors());
         }
         
-        // Redirigir en caso de éxito
+        // Redirigir en caso de éxito con mensaje correcto
         return redirect()->route('usuario')->with('success', 'Usuario registrado correctamente');
         
     } catch (\Exception $e) {
@@ -56,4 +56,19 @@ class UsuarioController extends Controller
         return redirect()->back()->withInput()->with('error', 'El correo ya existe. Intenta con otro.');
     }
 }
+public function marcaeEliminado($id)
+{
+    $usuarios = new UsuariosModel();
+    $usuario = $usuarios->find($id);
+    if ($usuario) {
+        // colocamos fecha actual al campo deleted_at
+        $usuarios->update($id, ['deleted_at' => date('Y-m-d H:i:s')]);
+        //Mensaje de exito
+        return redirect()->to('/usuario')->with('success', 'Usuario dado de baja correctamente');
+    } else {
+        // mensaje de error
+        return redirect()->to('/usuario')->with('success', 'Usuario no encontrado');
+    }
+}
+
 }
