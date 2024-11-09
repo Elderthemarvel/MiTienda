@@ -21,7 +21,8 @@
             <th>Género</th>
             <th>Fecha de Nacimiento</th>
             <th>Creado el</th>
-            <th>Eliminar registro </th>
+            <th>Modificar</th>
+            <th>Eliminar </th>
         </tr>
     </thead>
     <tbody>
@@ -36,9 +37,8 @@
                     <td><?php echo $registro['genero']; ?></td>
                     <td><?php echo $registro['fecha_nacimiento']; ?></td>
                     <td><?php echo $registro['created_at']; ?></td>
-                    <td><a href="<?= base_url('eliminar_user/' . $registro['id']) ?>" class="btn btn-danger" title="Eliminar usuario">
-                            <i class="bi bi-trash"></i>
-                        </a></td>
+                    <td><a href="<?= base_url('modificar_usuario/' . $registro['id']) ?>" class="btn btn-warning btn-sm" title="Modificar usuario"><i class="bi bi-pencil"></i></a></td>
+                    <td><a href="<?= base_url('eliminar_user/' . $registro['id']) ?>" class="btn btn-danger" title="Eliminar usuario"><i class="bi bi-trash"></i></a></td>
                 </tr>
             <?php endforeach; ?>
         <?php else : ?>
