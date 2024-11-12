@@ -14,9 +14,10 @@ $routes->get('/usuario', 'UsuarioController::verusuarios');
 $routes->get('/nuevo_user', 'UsuarioController::nuevousuario');
 $routes->post('/guardar_usuario', 'UsuarioController::registrousuario');
 $routes->get('/eliminar_user/(:num)','UsuarioController::marcaeEliminado/$1');
-
 $routes->get('/modificar_usuario/(:num)', 'UsuarioController::formulariomodificar/$1');
 $routes->post('/modificar_usuario/(:num)', 'UsuarioController::modificarusuario/$1');
+
+$routes->get('tipos','TiposController::vertipos');
 
 $routes->get('administrador/productos', 'ProductosController::verproductos');
 /*
