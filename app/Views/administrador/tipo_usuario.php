@@ -9,7 +9,7 @@
     </div>
 <?php endif; ?>
 
-<a href="<?= base_url('tipos/crear') ?>" class="btn btn-primary mb-3" title="Crear Tipo">Asignar nuevo tipo</a>
+<a href="<?= base_url('crear_tipo') ?>" class="btn btn-primary mb-3" title="Crear Tipo">Asignar nuevo tipo</a>
 <table class="table table-striped table-hover pt-2" id="dataTable">
     <thead>
         <tr>
@@ -21,14 +21,14 @@
         </tr>
     </thead>
     <tbody>
-        <?php if (!empty($datostipos) && is_array($datostipos)) : ?>
-            <?php foreach ($datostipos as $tipo) : ?>
-                <tr>
-                    <td><?= esc($tipo['id']); ?></td>
-                    <td><?= esc($tipo['nom_tipo']); ?></td>
-                    <td><?= esc($tipo['created_at']); ?></td>
-                    <td><a href="<?= base_url('tipos/editar/' . $tipo['id']) ?>" class="btn btn-warning btn-sm" title="Modificar tipo"><i class="bi bi-pencil"></i></a></td>
-                    <td><a href="<?= base_url('tipos/eliminar/' . $tipo['id']) ?>" class="btn btn-danger btn-sm" title="Eliminar tipo"><i class="bi bi-trash"></i></a></td>
+        <?php if (!empty($data) && is_array($data)) : ?>
+            <?php foreach ($data as $tipo) : ?>
+                <tr>                    
+                    <td><?php echo($tipo['id']); ?></td>
+                    <td><?php echo($tipo['nom_tipo']); ?></td>
+                    <td><?php echo($tipo['created_at']); ?></td>
+                    <td><a href="<?= base_url('editar/' . $tipo['id']) ?>" class="btn btn-warning btn-sm" title="Modificar tipo"><i class="bi bi-pencil"></i></a></td>
+                    <td><a href="<?= base_url('eliminar/' . $tipo['id']) ?>" class="btn btn-danger btn-sm" title="Eliminar tipo"><i class="bi bi-trash"></i></a></td>
                 </tr>
             <?php endforeach; ?>
         <?php else : ?>
