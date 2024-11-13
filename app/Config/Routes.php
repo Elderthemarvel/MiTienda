@@ -18,6 +18,7 @@ $routes->get('/modificar_usuario/(:num)', 'UsuarioController::formulariomodifica
 $routes->post('/modificar_usuario/(:num)', 'UsuarioController::modificarusuario/$1');
 
 $routes->get('/modificar_pass/(:num)', 'UsuarioController::formmodificarpass/$1');
+$routes->post('/mod_pass/(:num)', 'UsuarioController::modificarpass/$1');
 
 $routes->get('/tipos','TiposController::vertipos');
 
