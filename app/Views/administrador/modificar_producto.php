@@ -1,12 +1,9 @@
 <?= $this->extend('template') ?>
 
 <?= $this->section('contenido') ?>
-
-
-<h2>Formulario de Producto</h2>
 <div class="container mt-5">
         <h2 class="mb-4">Agregar Producto</h2>
-        <form action="<?= base_url('/guardar_producto') ?>" method="post">
+        <form action="<?= base_url('/') ?>" method="post">
             <div class="mb-3">
                 <label for="id_categoria" class="form-label">Categoría</label>
                 
@@ -34,6 +31,5 @@
             <button type="submit" class="btn btn-primary">Guardar Producto</button>
         </form>
     </div>
-
 
 <?= $this->endSection() ?>
