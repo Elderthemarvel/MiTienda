@@ -101,9 +101,9 @@ public function modificarusuario($id)
             'fecha_nacimiento' => $this->request->getPost('fecha_nacimiento')
             ];
             if ($usuarios->update($id, $data)) {
-                /*return redirect()->to('/usuario')->with('success', 'Usuario actualizado correctamente');*/
+                return redirect()->to('/usuario')->with('success', 'Usuario actualizado correctamente');
             }else{
-               /* return redirect()->to('/usuario')->with('success', 'Fatal error'); */
+                return redirect()->to('/usuario')->with('error', 'Fatal error'); 
             }
            
 
