@@ -8,6 +8,11 @@ use App\Models\UsuariosModel;
 
 class Auth extends BaseController
 {
+    public function index(): string
+    {
+        return view('login/login');
+    }
+    
     public function login()
     {
         $post = $this->request->getPost();
@@ -55,7 +60,7 @@ class Auth extends BaseController
     public function logout()
     {
         session()->destroy();
-        return redirect()->to('/');
+        return redirect()->to(base_url('/'));
     }
 }
 
