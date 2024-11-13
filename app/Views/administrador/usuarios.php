@@ -12,7 +12,7 @@
 <a href="<?= base_url('nuevo_user') ?>" class="btn btn-primary mb-3" title="Crear Usuario">Asignar nuevo usuario</a>
 <table class="table table-striped table-hover pt-2" id="dataTable">
     <thead>
-        <tr>
+        <tr class="text-center">
             <th>Id</th>
             <th>Id Tipo</th>
             <th>Nombre</th>
@@ -20,6 +20,7 @@
             <th>Correo</th>
             <th>Género</th>
             <th>Fecha de Nacimiento</th>
+            <th>Modificar Contraseña</th>
             <th>Creado el</th>
             <th>Modificar</th>
             <th>Eliminar </th>
@@ -36,9 +37,10 @@
                     <td><?php echo $registro['correo']; ?></td>
                     <td><?php echo $registro['genero']; ?></td>
                     <td><?php echo $registro['fecha_nacimiento']; ?></td>
+                    <td class="text-center"><a href="<?= base_url('modificar_pass/' . $registro['id']) ?>" class="btn btn-success btn-sm" title="Modificar contraseña"><i class="bi bi-key"></i></a></td>
                     <td><?php echo $registro['created_at']; ?></td>
-                    <td><a href="<?= base_url('modificar_usuario/' . $registro['id']) ?>" class="btn btn-warning btn-sm" title="Modificar usuario"><i class="bi bi-pencil"></i></a></td>
-                    <td><a href="<?= base_url('eliminar_user/' . $registro['id']) ?>" class="btn btn-danger" title="Eliminar usuario"><i class="bi bi-trash"></i></a></td>
+                    <td class="text-center"><a href="<?= base_url('modificar_usuario/' . $registro['id']) ?>" class="btn btn-warning btn-sm" title="Modificar usuario"><i class="bi bi-pencil"></i></a></td>
+                    <td class="text-center"><a href="<?= base_url('eliminar_user/' . $registro['id']) ?>" class="btn btn-danger" title="Eliminar usuario"><i class="bi bi-trash"></i></a></td>
                 </tr>
             <?php endforeach; ?>
         <?php else : ?>
