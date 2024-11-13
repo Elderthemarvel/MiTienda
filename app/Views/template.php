@@ -11,6 +11,10 @@
     <link rel="stylesheet" href="<?= base_url('/css/style.css') ?>">
     <link rel="stylesheet" href="<?= base_url('/icons/css/line-awesome.min.css') ?>">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="<?=base_url('/js/vue.js')?>"></script>
+    <script src="<?=base_url('/js/jquery-3.3.1.min.js')?>"></script>
+    <script src="<?=base_url('/js/jquery.blockUI.js')?>"></script>
+    <script src="<?=base_url('/js/pos.js')?>"></script>
 </head>
 
 <body>

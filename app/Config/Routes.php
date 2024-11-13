@@ -9,6 +9,11 @@ $routes->get('/', 'Auth::index');
 $routes->get('/home', 'Home::dashboard');
 $routes->post('/login', 'Auth::login');
 $routes->get('/logout', 'Auth::logout');
+$routes->get('/generar', 'VentasController::index');
+
+
+
+
 
 $routes->get('/usuario', 'UsuarioController::verusuarios');
 $routes->get('/nuevo_user', 'UsuarioController::nuevousuario');
