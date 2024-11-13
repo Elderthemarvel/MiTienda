@@ -3,7 +3,8 @@
 <?= $this->section('contenido') ?>
 <div class="container mt-5">
         <h2>Lista de Productos</h2>
-        <a href="/producto/create" class="btn btn-success mb-3">Agregar Nuevo Producto</a>
+       
+        <a href="<?=base_url('/nuevo_producto') ?>" class="btn btn-success mb-3">Agregar Nuevo Producto</a>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -16,17 +17,17 @@
                 </tr>
             </thead>
             <tbody>
-            <?php if (!empty($clientes) && is_array($clientes)): ?>
-                <?php foreach ($productos as $productos): ?>
+            <?php if (!empty($productos) && is_array($productos)): ?>
+                <?php foreach ($productos as $producto): ?>
                     <tr>
-                        <td><?= esc($productos['id']) ?></td>
-                        <td><?= esc($productos['id_categoria']) ?></td>
-                        <td><?= esc($productos['nombre']) ?></td>
-                        <td><?= esc($productos['precio_venta']) ?></td>
-                        <td><?= esc($productos['stock']) ?></td>
+                        <td><?= esc($producto['id']) ?></td>
+                        <td><?= esc($producto['id_categoria']) ?></td>
+                        <td><?= esc($producto['nombre']) ?></td>
+                        <td><?= esc($producto['precio_venta']) ?></td>
+                        <td><?= esc($producto['stock']) ?></td>
                         <td>
-                            <a href="/productos/edit/<?= $datosproductos['id'] ?>" class="btn btn-warning">Editar</a>
-                            <a href="/productos/delete/<?= $datosproductos['id'] ?>" class="btn btn-danger">Eliminar</a>
+                            <a href="/productos/edit/<?= $producto['id'] ?>" class="btn btn-warning">Editar</a>
+                            <a href="/productos/delete/<?= $producto['id'] ?>" class="btn btn-danger">Eliminar</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
