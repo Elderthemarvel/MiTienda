@@ -9,7 +9,7 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>ID Categoría</th>
+                    <th>Categoría</th>
                     <th>Nombre</th>
                     <th>Precio de Venta</th>
                     <th>Stock</th>
@@ -21,13 +21,13 @@
                 <?php foreach ($productos as $producto): ?>
                     <tr>
                         <td><?= esc($producto['id']) ?></td>
-                        <td><?= esc($producto['id_categoria']) ?></td>
+                        <td><?= esc($producto['nom_categoria']) ?></td>
                         <td><?= esc($producto['nombre']) ?></td>
                         <td><?= esc($producto['precio_venta']) ?></td>
                         <td><?= esc($producto['stock']) ?></td>
                         <td>
                             <a href="/productos/edit/<?= $producto['id'] ?>" class="btn btn-warning">Editar</a>
-                            <a href="/productos/delete/<?= $producto['id'] ?>" class="btn btn-danger">Eliminar</a>
+                            <a href="/productos/confirm-delete/<?= $producto['id'] ?>" class="btn btn-danger">Eliminar</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
