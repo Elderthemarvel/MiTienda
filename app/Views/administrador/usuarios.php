@@ -2,9 +2,14 @@
 
 <?= $this->section('contenido') ?>
 <h1>Usuarios</h1>
-<a href="<?= base_url('nuevo_user') ?>" class="btn btn-primary mb-3">
-            Asignar nuevo usuario
-</a>
+
+<?php if (session()->getFlashdata('success')) : ?>
+    <div class="alert alert-success">
+        <?= session()->getFlashdata('success') ?>
+    </div>
+<?php endif; ?>
+
+<a href="<?= base_url('nuevo_user') ?>" class="btn btn-primary mb-3" title="Crear Usuario">Asignar nuevo usuario</a>
 <table class="table table-striped table-hover pt-2" id="dataTable">
     <thead>
         <tr>
@@ -16,8 +21,8 @@
             <th>Género</th>
             <th>Fecha de Nacimiento</th>
             <th>Creado el</th>
-            <th>Actualizado el</th>
-            <th>Eliminado el</th>
+            <th>Modificar</th>
+            <th>Eliminar </th>
         </tr>
     </thead>
     <tbody>
@@ -32,8 +37,8 @@
                     <td><?php echo $registro['genero']; ?></td>
                     <td><?php echo $registro['fecha_nacimiento']; ?></td>
                     <td><?php echo $registro['created_at']; ?></td>
-                    <td><?php echo $registro['updated_at']; ?></td>
-                    <td><?php echo $registro['deleted_at']; ?></td>
+                    <td><a href="<?= base_url('modificar_usuario/' . $registro['id']) ?>" class="btn btn-warning btn-sm" title="Modificar usuario"><i class="bi bi-pencil"></i></a></td>
+                    <td><a href="<?= base_url('eliminar_user/' . $registro['id']) ?>" class="btn btn-danger" title="Eliminar usuario"><i class="bi bi-trash"></i></a></td>
                 </tr>
             <?php endforeach; ?>
         <?php else : ?>

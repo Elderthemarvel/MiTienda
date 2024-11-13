@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="<?= base_url('/css/bootstrap.css') ?>">
     <link rel="stylesheet" href="<?= base_url('/css/style.css') ?>">
     <link rel="stylesheet" href="<?= base_url('/icons/css/line-awesome.min.css') ?>">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 
 <body>
