@@ -17,7 +17,10 @@ $routes->get('/eliminar_user/(:num)','UsuarioController::marcaeEliminado/$1');
 $routes->get('/modificar_usuario/(:num)', 'UsuarioController::formulariomodificar/$1');
 $routes->post('/modificar_usuario/(:num)', 'UsuarioController::modificarusuario/$1');
 
-$routes->get('tipos','TiposController::vertipos');
+$routes->get('/modificar_pass/(:num)', 'UsuarioController::formmodificarpass/$1');
+$routes->post('/mod_pass/(:num)', 'UsuarioController::modificarpass/$1');
+
+$routes->get('/tipos','TiposController::vertipos');
 
 $routes->get('/productos', 'ProductosController::productos');
 $routes->get('/nuevo_producto', 'ProductosController::nuevo_producto');

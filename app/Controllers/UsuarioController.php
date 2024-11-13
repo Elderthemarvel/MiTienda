@@ -104,10 +104,41 @@ public function modificarusuario($id)
                 return redirect()->to('/usuario')->with('success', 'Usuario actualizado correctamente');
             }else{
                 return redirect()->to('/usuario')->with('error', 'Fatal error'); 
-            }
-           
-
-        
+        }
     }
+
+public function formmodificarpass($id)
+{
+    $usuarios = new UsuariosModel();
+    $usuario = $usuarios->find($id);
+    if ($usuario) {
+        //print_r($usuario);
+        return view('administrador/modificar_pass', ['usuario' => $usuario,'perfil' => 1]);
+    } else {
+        return redirect()->to('/usuario')->with('error', 'Ha ocurrido un error, no se puede modificar el password');
+    }
+}
+
+public function modificarpass($id)
+{
+    $usuarios = new UsuariosModel();
+
+    $pass1 = $this->request->getPost('pass1');
+    $pass2 = $this->request->getPost('pass2');
+
+    
+    if ($pass1 !== $pass2) {
+        return redirect()->back()->with('error', 'Las contraseñas no coinciden. Por favor, inténtalo de nuevo.');
+    }
+    $data = [
+        'pass' => password_hash($pass1, PASSWORD_DEFAULT)
+    ];
+
+    if ($usuarios->update($id, $data)) {
+        return redirect()->to('/usuario')->with('success', 'Contraseña actualizada correctamente');
+    } else {
+        return redirect()->to('/usuario')->with('error', 'No se pudo actualizar la contraseña. Inténtalo más tarde');
+    }
+}
 
 }
