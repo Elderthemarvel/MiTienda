@@ -119,5 +119,26 @@ public function formmodificarpass($id)
     }
 }
 
+public function modificarpass($id)
+{
+    $usuarios = new UsuariosModel();
+
+    $pass1 = $this->request->getPost('pass1');
+    $pass2 = $this->request->getPost('pass2');
+
+    
+    if ($pass1 !== $pass2) {
+        return redirect()->back()->with('error', 'Las contraseñas no coinciden. Por favor, inténtalo de nuevo.');
+    }
+    $data = [
+        'pass' => password_hash($pass1, PASSWORD_DEFAULT)
+    ];
+
+    if ($usuarios->update($id, $data)) {
+        return redirect()->to('/usuario')->with('success', 'Contraseña actualizada correctamente');
+    } else {
+        return redirect()->to('/usuario')->with('error', 'No se pudo actualizar la contraseña. Inténtalo más tarde');
+    }
+}
 
 }
