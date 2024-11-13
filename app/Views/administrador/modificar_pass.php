@@ -20,7 +20,7 @@
             </div>
         <?php endif; ?>
 
-        <form action="<?= base_url('/modificar_pass/' . $usuario['id']) ?>" method="post" class="row g-3">
+        <form action="<?= base_url('/mod_pass/' . $usuario['id']) ?>" method="post" class="row g-3">
             <div class="col-12 mb-3">
                 <h3>Usuario: <h5><?= esc($usuario['nombre']) ?></h45></h3>
             </div>
