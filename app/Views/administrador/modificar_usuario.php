@@ -46,13 +46,7 @@
                 <input type="text" class="form-control form-control-sm" id="apellido" name="apellido" maxlength="30" value="<?= esc($usuario['apellido']) ?>" required>
             </div>
 
-            <div class="col-md-2">
-                <label for="pass" class="form-label">Contraseña</label>
-            </div>
-            <div class="col-md-4">
-                <input type="password" class="form-control form-control-sm" id="pass" name="pass" maxlength="30">
-                <small class="text-muted">No es necesario modificar la contraseña; dejalo como está</small>
-            </div>
+            
             
             <div class="col-md-2">
                 <label for="correo" class="form-label">Correo</label>

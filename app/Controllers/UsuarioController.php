@@ -98,13 +98,16 @@ public function modificarusuario($id)
             'apellido' => $this->request->getPost('apellido'),
             'correo' => $this->request->getPost('correo'),
             'genero' => $this->request->getPost('genero'),
-            'fecha_nacimiento' => $this->request->getPost('fecha_nacimiento'),
-            'pass' => password_hash($this->request->getPost('pass'), PASSWORD_DEFAULT)
+            'fecha_nacimiento' => $this->request->getPost('fecha_nacimiento')
             ];
-    
-            $usuarios->update($id, $data);
+            if ($usuarios->update($id, $data)) {
+                /*return redirect()->to('/usuario')->with('success', 'Usuario actualizado correctamente');*/
+            }else{
+               /* return redirect()->to('/usuario')->with('success', 'Fatal error'); */
+            }
+           
 
-        return redirect()->to('/usuario')->with('success', 'Usuario actualizado correctamente');
+        
     }
 
 }
