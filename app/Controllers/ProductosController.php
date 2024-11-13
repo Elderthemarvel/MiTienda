@@ -42,7 +42,7 @@ class ProductosController extends Controller
     }
     public function productos_edit($id)
     {
-        $model = new \App\Models\clientesModel();
+        $model = new \App\Models\ProductosModel();
         $data['cliente'] = $model->find($id);
 
         return view('clientes/edit', $data);
