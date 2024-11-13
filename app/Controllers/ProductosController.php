@@ -18,7 +18,7 @@ class ProductosController extends Controller
     {
         $datosproductos['perfil'] = $this->perfil;
         $ProductosModel = model('ProductosModel');
-        $datosproductos['productos'] = $ProductosModel->findAll();
+        $datosproductos['productos'] = $ProductosModel->asArray()->select('productos.id, productos.nombre,productos.precio_venta, productos.stock, categorias.nom_categoria')->join('categorias','id_categoria=categorias.id')->findAll();
 
         return view('/administrador/productos',$datosproductos);
     }
@@ -37,39 +37,44 @@ class ProductosController extends Controller
         $data = $this->request->getPost();
         $Productos->insert($data);
 
-       // return redirect()->to('/productos');
+       return redirect()->to('/productos');
        $this->response->setJSON($data);
     }
     public function productos_edit($id)
     {
+        $data['perfil'] = $this->perfil;
         $model = new \App\Models\ProductosModel();
-        $data['cliente'] = $model->find($id);
+        $data['productos'] = $model->find($id);
+        $categorias= model('CategoriasModel');
+        $data['categorias']=$categorias->findAll();
 
-        return view('clientes/edit', $data);
+        return view('administrador/modificar_producto', $data);
     }
 
     public function productos_update($id)
     {
-        $datosproductos['perfil'] = $this->perfil;
-        $Productos = model('ProductosModel');
-        $data['producto'] = $model->find($id);
-        $datosproductos['categorias']=$categorias->findAll();
-        return view('/administrador/nuevo_producto',$datosproductos);
-        return view('editar_producto', $data);
+        
+        $model = new \App\Models\ProductosModel();
+        $data = $this->request->getPost();
+        $model->update($id, $data);
+        return redirect()->to('/productos');
+
     }
 
     public function productos_delete($id)
     {
-        $model = new \App\Models\ProductoController();
+        $data['perfil'] = $this->perfil;
+        $model = new \App\Models\ProductosModel();
         $model->delete($id);
 
-        return redirect()->to('/administrador/productos');
+        return redirect()->to('/productos');
     }
 
-    public function clientes_confirmDelete($id)
+    public function productos_confirmDelete($id)
     {
+        $data['perfil'] = $this->perfil;
         $model = new \App\Models\ProductosModel();
-        $data['producto'] = $model->find($id);
+        $data['productos'] = $model->find($id);
 
         return view('administrador/confirm_delete', $data);
     }
