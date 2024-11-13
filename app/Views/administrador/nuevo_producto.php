@@ -6,10 +6,18 @@
 <h2>Formulario de Producto</h2>
 <div class="container mt-5">
         <h2 class="mb-4">Agregar Producto</h2>
-        <form action="<?= site_url('/producto/create') ?>" method="post">
+        <form action="<?= base_url('/guardar_producto') ?>" method="post">
             <div class="mb-3">
-                <label for="id_categoria" class="form-label">ID Categoría</label>
-                <input type="number" class="form-control" id="id_categoria" name="id_categoria" required>
+                <label for="id_categoria" class="form-label">Categoría</label>
+                
+                <select name="id_categoria" id="id_categoria" class="form-control" required>
+                    <option value="" hidden >Seleccione una opción</option>
+                    <?php foreach ($categorias as $categoria) {?>
+                        <option value="<?= $categoria['id']?> "><?= $categoria['nom_categoria']?></option>
+                    <?php    
+                    }
+                    ?>
+                </select>
             </div>
             <div class="mb-3">
                 <label for="nombre" class="form-label">Nombre</label>
