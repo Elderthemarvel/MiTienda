@@ -22,3 +22,7 @@ $routes->get('tipos','TiposController::vertipos');
 $routes->get('/productos', 'ProductosController::productos');
 $routes->get('/nuevo_producto', 'ProductosController::nuevo_producto');
 $routes->post('/guardar_producto', 'ProductosController::guardar_producto');
+$routes->get('/edit/(:num)', 'Home::clientes_edit/$1');
+$routes->post('/update/(:num)', 'Home::clientes_update/$1');
+$routes->get('/confirm-delete/(:num)', 'Home::clientes_confirmDelete/$1');
+$routes->post('/delete/(:num)', 'Home::clientes_delete/$1');

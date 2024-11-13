@@ -41,6 +41,32 @@ class ProductosController extends Controller
        $this->response->setJSON($data);
     }
 
+    public function update($id)
+    {
+        $datosproductos['perfil'] = $this->perfil;
+        $Productos = model('ProductosModel');
+        $data['producto'] = $model->find($id);
+        $datosproductos['categorias']=$categorias->findAll();
+        return view('/administrador/nuevo_producto',$datosproductos);
+        return view('editar_producto', $data);
+    }
+
+    public function productos_eliminar($id)
+    {
+        $model = new \App\Models\ProductoController();
+        $model->delete($id);
+
+        return redirect()->to('/administrador/productos');
+    }
+
+    public function clientes_confirmDelete($id)
+    {
+        $model = new \App\Models\ProductosModel();
+        $data['producto'] = $model->find($id);
+
+        return view('administrador/confirm_delete', $data);
+    }
+
     /*
     public function delete($id)
     {
@@ -51,14 +77,7 @@ class ProductosController extends Controller
         return redirect()->to('/productos');
     }
 
-    public function edit($id)
-    {
-        $datosproductos['perfil'] = 1;
-        $model = new ProductosModel();
-        $data['producto'] = $model->find($id);
-
-        return view('editar_producto', $data);
-    }
+  
 
     public function update($id)
     {
