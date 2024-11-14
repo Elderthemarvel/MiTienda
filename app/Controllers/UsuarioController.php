@@ -105,8 +105,7 @@ public function modificarusuario($id)
             }else{
                /* return redirect()->to('/usuario')->with('success', 'Fatal error'); */
             }
-           
-
+        
         
     }
 
