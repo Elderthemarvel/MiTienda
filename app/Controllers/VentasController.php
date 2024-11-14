@@ -39,6 +39,29 @@ class VentasController extends BaseController
         $recibos   =   model("RecibosModel");
         $post = $request->getPost();
         $carrito = json_decode($post['carrito']);
+       
+        $dataRecibo = [
+            "id_user"=>$this->session->get('user_id') ?? 0,
+            "id_tipo_pago"=>$post['worker'],
+            "no_aut"=> $carrito[0]->id,
+            "numero"=> $post['monto'],
+            "serie"=> $post['ciclo'],
+            "nit"=> isset($no_interno[0]) ? $no_interno[0]['no_interno'] + 1 : 1,
+            "fecha_creacion"=> $serie_interno,
+            "total"=> $post['descuento'],
+            "detalle"=> $post['aut_pago'] ?? 0,
+        ];
+
+        if ($recibos->insert($dataRecibo)) {
+            $data['id_pago']  =   $recibos->getInsertID();
+            $data['error']=false ;
+            $data['pdfUrl'] = $this->ticket($data['id_pago'], null, 'reciboInterno' );
+            //$data['sae_print'] = $this->print_sae($data['pdfUrl'], $user_payments->getReceiptData( $response['id_pago'], $post['ciclo'] ), 'recibo' );
+        }else {
+            $data['error']=true ;
+        }
+
+        return $this->response->setJSON($data);
     }
 
     public function stock(){
