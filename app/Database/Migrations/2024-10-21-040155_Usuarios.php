@@ -31,7 +31,7 @@ class Usuarios extends Migration
             ],
             'pass' => [
                 'type' => 'VARCHAR',
-                'constraint' => '30',
+                'constraint' => '255',
             ],
             'correo' => [
                 'type' => 'VARCHAR',
