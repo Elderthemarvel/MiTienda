@@ -5,10 +5,15 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-$routes->get('/', 'Home::index');
+$routes->get('/', 'Auth::index');
 $routes->get('/home', 'Home::dashboard');
 $routes->post('/login', 'Auth::login');
 $routes->get('/logout', 'Auth::logout');
+$routes->get('/generar', 'VentasController::index');
+
+
+
+
 
 $routes->get('/usuario', 'UsuarioController::verusuarios');
 $routes->get('/nuevo_user', 'UsuarioController::nuevousuario');
@@ -17,15 +22,15 @@ $routes->get('/eliminar_user/(:num)','UsuarioController::marcaeEliminado/$1');
 $routes->get('/modificar_usuario/(:num)', 'UsuarioController::formulariomodificar/$1');
 $routes->post('/modificar_usuario/(:num)', 'UsuarioController::modificarusuario/$1');
 
-$routes->get('tipos','TiposController::vertipos');
+$routes->get('/modificar_pass/(:num)', 'UsuarioController::formmodificarpass/$1');
+$routes->post('/mod_pass/(:num)', 'UsuarioController::modificarpass/$1');
 
-$routes->get('administrador/productos', 'ProductosController::verproductos');
-/*
-$routes->get('productos', 'ProductosController::productos');
+$routes->get('/tipos','TiposController::vertipos');
+
 $routes->get('/productos', 'ProductosController::productos');
-$routes->get('/productos/create', 'ProductosController::create');
-$routes->post('/productos/create', 'ProductosController::create');
-$routes->get('/productos/edit/(:num)', 'ProductosController::edit/$1');
-$routes->post('/productos/update/(:num)', 'ProductosController::update/$1');
-$routes->get('/productos/delete/(:num)', 'ProductosController::delete/$1');
-*/
+$routes->get('/nuevo_producto', 'ProductosController::nuevo_producto');
+$routes->post('/guardar_producto', 'ProductosController::guardar_producto');
+$routes->get('/productos/edit/(:num)', 'ProductosController::productos_edit/$1');
+$routes->post('/productos/update/(:num)', 'ProductosController::productos_update/$1');
+$routes->get('/productos/confirm-delete/(:num)', 'ProductosController::productos_confirmDelete/$1');
+$routes->post('/productos/delete/(:num)', 'ProductosController::productos_delete/$1');

@@ -5,62 +5,79 @@ use CodeIgniter\Controller;
 use App\Models\ProductosModel;
 class ProductosController extends Controller
 {
-    public function verproductos()
+    protected $perfil;
+
+    public function __construct()
     {
-        return view('/administrador/productos');
+       
+        $this->perfil = 1;
     }
+   
 
     public function productos(): string
     {
-        $ProductosModel = new \App\Models\ProductosModel();
-        $productos = $ProductosModel->findAll();
+        $datosproductos['perfil'] = $this->perfil;
+        $ProductosModel = model('ProductosModel');
+        $datosproductos['productos'] = $ProductosModel->asArray()->select('productos.id, productos.nombre,productos.precio_venta, productos.stock, categorias.nom_categoria')->join('categorias','id_categoria=categorias.id')->findAll();
 
-        return view('/administrador/productos', ['productos' => $productos]);
+        return view('/administrador/productos',$datosproductos);
     }
-    /*
-    public function create()
+    public function nuevo_producto(): string
     {
-        $datosproductos['perfil'] = 1;
-        $model = new ProductosModel();
-        $model->save([
-            'id_categoria' => $this->request->get('id_categoria'),
-            'nombre' => $this->request->get('nombre'),
-            'precio_venta' => $this->request->get('precio_venta'),
-            'stock' => $this->request->get('stock')
-        ]);
+        $datosproductos['perfil'] = $this->perfil;
+        $categorias= model('CategoriasModel');
+        $datosproductos['categorias']=$categorias->findAll();
+        return view('/administrador/nuevo_producto',$datosproductos);
+    }
 
+    
+    public function guardar_producto()
+    {
+        $Productos = model('ProductosModel');
+        $data = $this->request->getPost();
+        $Productos->insert($data);
+
+       return redirect()->to('/productos');
+       $this->response->setJSON($data);
+    }
+    public function productos_edit($id)
+    {
+        $data['perfil'] = $this->perfil;
+        $model = new \App\Models\ProductosModel();
+        $data['productos'] = $model->find($id);
+        $categorias= model('CategoriasModel');
+        $data['categorias']=$categorias->findAll();
+
+        return view('administrador/modificar_producto', $data);
+    }
+
+    public function productos_update($id)
+    {
+        
+        $model = new \App\Models\ProductosModel();
+        $data = $this->request->getPost();
+        $model->update($id, $data);
         return redirect()->to('/productos');
+
     }
 
-    public function delete($id)
+    public function productos_delete($id)
     {
-        $datosproductos['perfil'] = 1;
-        $model = new ProductosModel();
+        $data['perfil'] = $this->perfil;
+        $model = new \App\Models\ProductosModel();
         $model->delete($id);
 
         return redirect()->to('/productos');
     }
 
-    public function edit($id)
+    public function productos_confirmDelete($id)
     {
-        $datosproductos['perfil'] = 1;
-        $model = new ProductosModel();
-        $data['producto'] = $model->find($id);
+        $data['perfil'] = $this->perfil;
+        $model = new \App\Models\ProductosModel();
+        $data['productos'] = $model->find($id);
 
-        return view('editar_producto', $data);
+        return view('administrador/confirm_delete', $data);
     }
 
-    public function update($id)
-    {
-        $datosproductos['perfil'] = 1;
-        $model = new ProductosModel();
-        $model->update($id, [
-            'id_categoria' => $this->request->get('id_categoria'),
-            'nombre' => $this->request->get('nombre'),
-            'precio_venta' => $this->request->get('precio_venta'),
-            'stock' => $this->request->get('stock')
-        ]);
-
-        return redirect()->to('/producto');
-    }*/
+    
 }
