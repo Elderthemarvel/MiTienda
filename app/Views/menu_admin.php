@@ -19,7 +19,7 @@
         </a>
     </li>
     <li>
-        <a href="">
+        <a href="<?= base_url('/categoria') ?>">
             <i class="las la-tag icon"></i>
             <span class="text-item">Nuevo Categoria</span>
         </a>
