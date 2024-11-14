@@ -10,7 +10,11 @@ $routes->get('/home', 'Home::dashboard');
 $routes->post('/login', 'Auth::login');
 $routes->get('/logout', 'Auth::logout');
 $routes->get('/generar', 'VentasController::index');
-
+$routes->get('/nit', 'VentasController::get_nit');
+$routes->get('/productos/listar', 'VentasController::productos');
+$routes->get('/metodos/listar', 'VentasController::metodos');
+$routes->post('/guardar_venta', 'VentasController::guardar_venta');
+$routes->get('/ventas/stock', 'VentasController::stock');
 
 
 

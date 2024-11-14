@@ -9,12 +9,17 @@
     <!-- link styles -->
     <link rel="stylesheet" href="<?= base_url('/css/bootstrap.css') ?>">
     <link rel="stylesheet" href="<?= base_url('/css/style.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('/css/select2.css') ?>">
     <link rel="stylesheet" href="<?= base_url('/icons/css/line-awesome.min.css') ?>">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css" />
+    
     <script src="<?=base_url('/js/vue.js')?>"></script>
     <script src="<?=base_url('/js/jquery-3.3.1.min.js')?>"></script>
     <script src="<?=base_url('/js/jquery.blockUI.js')?>"></script>
     <script src="<?=base_url('/js/pos.js')?>"></script>
+    <script src="<?=base_url('/js/select2.min.js')?>"></script>
+    <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 
 <body>
