@@ -1,7 +1,7 @@
 <?= $this->extend('template') ?>
 
 <?= $this->section('contenido') ?>
-<div class="row g-3 mt-3">
+<div class="row g-3">
             <div class="col-lg-4 d-flex">
                 <div class="card flex-grow-1">
                     <div class="card-body">
@@ -18,7 +18,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-8 d-flex flex-wrap gap-3">
+                            <div class="col-md-9 d-flex flex-wrap gap-3">
                                 <div class="rounded-circle overflow-hidden border" style="width: 90px; height: 90px;">
                                     <img src="https://e7.pngegg.com/pngimages/867/694/png-clipart-user-profile-default-computer-icons-network-video-recorder-avatar-cartoon-maker-blue-text.png"
                                         width="100%" alt="">
