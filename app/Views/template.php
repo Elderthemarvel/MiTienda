@@ -25,6 +25,7 @@
 <body>
     <!-- Contenedor general -->
     <main class="container-general" id="app">
+    <?php $session = session(); ?>
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg py-3 sticky-top shadow-sm navbar-color">
             <div class="container-fluid">
@@ -51,7 +52,7 @@
                                 <img src="<?= base_url('images/avatar.png')?>"alt="logo">
                                 </div>
                                 <div>
-                                    <div class="fw-semibold">Hola, Elder</div>
+                                    <div class="fw-semibold">Hola, <?= esc($session->get('nombre')." ".$session->get('apellido')); ?></div>
                                    <!-- <div>
                                         <a href="" class="nav-link text-primary">Ver mi perfil</a>
                                     </div>-->

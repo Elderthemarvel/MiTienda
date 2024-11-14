@@ -151,25 +151,16 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="pt-3" v-else>
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="form-group has-success">
-                                                    <textarea class="form-control" name="observaciones" placeholder="Observaciones" rows="3"></textarea>    
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="pt-3">
-                                    <input v-if="saldo < calcularTotal" type="submit" value="Agregar Pago" class="btn btn-lg btn-primary btn-block">
-                                    <input v-if="saldo >= calcularTotal" type="submit" value="PAGAR" class="btn btn-lg btn-primary btn-block">
+                                    <div class="pt-3 d-grid">
+                                        <input v-if="saldo < calcularTotal" type="submit" value="Agregar Pago" class="btn btn-lg btn-primary btn-block">
+                                        <input v-if="saldo >= calcularTotal" v-on:click="guardar_recibo()" type="button" value="PAGAR" class="btn btn-lg btn-primary btn-block">
                                     </div>
                                 </form>
                             </div>
-                            <div class="row">
+                            <div class="col-12">
                                 <div class="mt-1"> 
                                     Metodos agregados:
-                                    <table class="w-100 table table-striped" v-if="metodos != '' ">
+                                    <table class="table" v-if="metodos != '' ">
                                         <thead>
                                             <tr>
                                                 <td>Tipo</td>
@@ -181,7 +172,7 @@
                                             <tr v-for="(metodo,index) in metodos">
                                                 <td>{{metodo.n_metodo}}</td>
                                                 <td>{{metodo.cantidad | moneda}}</td>
-                                                <td v-if="metodo.metodo != 5"><i v-on:click="borrar_metodo(index)" class="fas fa-trash-alt"></i></td>
+                                                <td v-if="metodo.metodo != 5"><i  v-on:click="borrar_metodo(index)" class="las la-trash-alt"></i></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -284,20 +275,10 @@
             },
             agregarMetodo(){
                 let form  =  new FormData(document.getElementById('pagos'));
-                if(form.get('observaciones') === null){
-                    if (this.tipo_pagos[form.get('tipo_pago')]['nom_tipo']=="Efectivo" ||this.tipo_pagos[form.get('tipo_pago')]['nom_tipo']=="efectivo") {
-                        this.blockefectivo=true;
-                    }
-                    let pagos = {'n_metodo': this.tipo_pagos[form.get('tipo_pago')]['nom_tipo'],'metodo': form.get('tipo_pago'), 'numero': form.get('numero'), 'cantidad': form.get('cantidad'),  'f_pago': form.get('f_pago')};
-                    this.metodos.push(pagos);
-                    document.getElementById("pagos").reset(); 
-                    this.pago='';
-                }else{
-                    this.observaciones = form.get('observaciones');
-                   console.log('guardar');
-                    //this.guardar_rec();
-                    
-                }
+                let pagos = {'n_metodo': this.tipo_pagos[form.get('tipo_pago')]['nom_tipo'],'metodo': form.get('tipo_pago'), 'numero': form.get('numero'), 'cantidad': form.get('cantidad'),  'f_pago': form.get('f_pago')};
+                this.metodos.push(pagos);
+                document.getElementById("pagos").reset(); 
+                this.pago='';
             },
             listar_metodos(){
                 axios.get(base_url + '/metodos/listar')
@@ -315,12 +296,17 @@
                     }
                 })
             },
+
+            borrar_metodo: function(index){
+                this.metodos.splice(index,1);
+            },
             guardar_recibo(){
                 blockUI();
                 let form = new FormData();
                 form.append('carrito',JSON.stringify(this.productos_carrito));
                 form.append('metodos',JSON.stringify(this.metodos));
                 form.append('total',this.calcularTotal);
+                form.append('nit',this.nit);
                 axios.post(base_url + '/guardar_venta', form)
                     .then( response => {
                         unblockUI();

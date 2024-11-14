@@ -3,7 +3,7 @@
     <li>
         <a href="<?= base_url('/home') ?>">
             <i class="las la-home icon"></i>
-            <span class="text-item">Home</span>
+            <span class="text-item">Creditos</span>
         </a>
     </li>
     <li>
