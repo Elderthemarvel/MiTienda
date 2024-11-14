@@ -1,21 +1,26 @@
 <?= $this->extend('template') ?>
 
 <?= $this->section('contenido') ?>
-
-<table id="productos" class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">ID</th>
-      <th scope="col">Producto</th>
-      <th scope="col">Precio</th>
-      <th scope="col">Stock</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-  </tbody>
-</table>
+<div class="card">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table id="productos" class="table table-striped">
+                <thead>
+                    <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Producto</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Stock</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 <?= $this->endSection() ?>
 <?= $this->section('scripts') ?>
 <script>

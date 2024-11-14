@@ -1,12 +1,13 @@
 <?= $this->extend('template') ?>
 
 <?= $this->section('contenido') ?>
-<body>
-    <div class="container mt-5">
-        <h1 class="mb-5">Formulario de Usuario</h1>
-
-        <!-- Bloque para mostrar mensajes de error -->
-        <?php if (session()->getFlashdata('error')) : ?>
+<div class="card">
+    <div class="card-header">
+        <h1>Formulario de Usuario</h1>
+    </div>
+    <div class="card-body">
+         <!-- Bloque para mostrar mensajes de error -->
+         <?php if (session()->getFlashdata('error')) : ?>
             <div class="alert alert-danger">
                 <?= session()->getFlashdata('error') ?>
             </div>
@@ -80,12 +81,12 @@
             </div>
 
             <div class="col-md-2"></div>
-            <div class="col-md-4 d-flex justify-content-between">
-                <button type="submit" class="btn btn-primary btn-sm">Guardar</button>
-                <button type="reset" class="btn btn-secondary btn-sm">Cancelar</button>
+            <div class="col-md-4 d-flex justify-content-end">
+                <button type="submit" class="btn btn-primary btn-sm me-2">Guardar</button>
+                <a href="<?= base_url('/usuario') ?>" class="btn btn-secondary btn-sm">Cancelar</a>
             </div>
         </form>
     </div>
-</body>
+</div>
 
 <?= $this->endSection() ?>

@@ -2,10 +2,11 @@
 
 <?= $this->section('contenido') ?>
 
-
-<h2>Formulario de Producto</h2>
-<div class="container mt-5">
-        <h2 class="mb-4">Agregar Producto</h2>
+<div class="card">
+    <div class="card-header">
+        <h2>Formulario de Agregar Producto</h2>
+    </div>
+    <div class="card-body">
         <form action="<?= base_url('/guardar_producto') ?>" method="post">
             <div class="mb-3">
                 <label for="id_categoria" class="form-label">Categoría</label>
@@ -34,6 +35,5 @@
             <button type="submit" class="btn btn-primary">Guardar Producto</button>
         </form>
     </div>
-
-
+</div>
 <?= $this->endSection() ?>

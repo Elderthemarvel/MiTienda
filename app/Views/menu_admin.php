@@ -19,13 +19,13 @@
         </a>
     </li>
     <li>
-        <a href="<?= base_url('/productos') ?>">
+        <a href="<?= base_url('/nuevo_producto') ?>">
             <i class="las la-clipboard-list icon"></i>
-            <span class="text-item">Productos</span>
+            <span class="text-item">Nuevo Producto</span>
         </a>
     </li>
     <li>
-        <a href="google">
+        <a href="<?= base_url('/productos') ?>">
             <i class="las las la-store-alt icon"></i>
             <span class="text-item">Stock</span>
         </a>

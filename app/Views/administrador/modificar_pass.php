@@ -1,12 +1,14 @@
 <?= $this->extend('template') ?>
 
 <?= $this->section('contenido') ?>
-<body>
-    <div class="container mt-5">
-        <h1 class="mb-5">Modificar Contraseña</h1>
 
-        <!-- Bloque para mostrar mensajes de error -->
-        <?php if (session()->getFlashdata('error')) : ?>
+<div class="card">
+    <div class="card-header">
+        <h1 class="mb-5">Modificar Contraseña</h1>
+    </div>
+    <div class="card-body">
+ <!-- Bloque para mostrar mensajes de error -->
+ <?php if (session()->getFlashdata('error')) : ?>
             <div class="alert alert-danger">
                 <?= session()->getFlashdata('error') ?>
             </div>
@@ -48,6 +50,14 @@
             </div>
 
         </form>
+    </div>
+</div>
+
+<body>
+    <div class="container mt-5">
+        
+
+       
     </div>
 
 </body>
