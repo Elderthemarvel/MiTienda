@@ -9,8 +9,8 @@ class ProductosController extends Controller
 
     public function __construct()
     {
-       
-        $this->perfil = 1;
+        $this->session = \Config\Services::session();
+        $this->perfil = $this->session->get('tipo');
     }
    
 
