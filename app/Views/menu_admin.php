@@ -13,12 +13,6 @@
         </a>
     </li>
     <li>
-        <a href="<?= base_url('/tipos') ?>">
-            <i class="las la-user-shield icon"></i>
-            <span class="text-item">Tipo de Usuario</span>
-        </a>
-    </li>
-    <li>
         <a href="<?= base_url('/categoria') ?>">
             <i class="las la-tag icon"></i>
             <span class="text-item">Nuevo Categoria</span>
