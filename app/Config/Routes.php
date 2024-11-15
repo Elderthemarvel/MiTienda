@@ -15,9 +15,11 @@ $routes->get('/productos/listar', 'VentasController::productos');
 $routes->get('/metodos/listar', 'VentasController::metodos');
 $routes->post('/guardar_venta', 'VentasController::guardar_venta');
 $routes->get('/ventas/stock', 'VentasController::stock');
+$routes->get('/ventas', 'VentasController::ventas');
+$routes->get('p', 'VentasController::print_recibo')
+
 $routes->get('/categoria','CategoriaController::verCategorias');
 $routes->get('/nuevaCat','CategoriaController::nuevaCategoria');
-
 
 
 

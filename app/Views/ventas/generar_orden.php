@@ -275,7 +275,7 @@
             },
             agregarMetodo(){
                 let form  =  new FormData(document.getElementById('pagos'));
-                let pagos = {'n_metodo': this.tipo_pagos[form.get('tipo_pago')]['nom_tipo'],'metodo': form.get('tipo_pago'), 'numero': form.get('numero'), 'cantidad': form.get('cantidad'),  'f_pago': form.get('f_pago')};
+                let pagos = {'n_metodo': this.tipo_pagos[form.get('tipo_pago')]['nom_tipo'],'metodo': this.tipo_pagos[form.get('tipo_pago')]['id'], 'numero': form.get('numero'), 'cantidad': form.get('cantidad'),  'f_pago': form.get('f_pago')};
                 this.metodos.push(pagos);
                 document.getElementById("pagos").reset(); 
                 this.pago='';

@@ -31,9 +31,9 @@
         </a>
     </li>
     <li>
-        <a href="">
+        <a href="<?= base_url('/ventas') ?>">
             <i class="las la-clipboard-check icon"></i>
-            <span class="text-item">Ordenes</span>
+            <span class="text-item">Ventas</span>
         </a>
     </li>
 </ul>

@@ -4,6 +4,8 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use CodeIgniter\HTTP\ResponseInterface;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 
 class VentasController extends BaseController
 {
@@ -37,28 +39,47 @@ class VentasController extends BaseController
     public function guardar_venta(){
         $request   =   \Config\Services::request();
         $recibos   =   model("RecibosModel");
+        $recibos_detalle = model("RecibosDetalleModel");
         $post = $request->getPost();
         $carrito = json_decode($post['carrito']);
-       
+        $metodos = json_decode($post['metodos']);
+        $num = $recibos->countAll();
+        $db = \Config\Database::connect();
+
+        $db->transStart();
+
         $dataRecibo = [
             "id_user"=>$this->session->get('user_id') ?? 0,
-            "id_tipo_pago"=>$post['worker'],
-            "no_aut"=> $carrito[0]->id,
-            "numero"=> $post['monto'],
-            "serie"=> $post['ciclo'],
-            "nit"=> isset($no_interno[0]) ? $no_interno[0]['no_interno'] + 1 : 1,
-            "fecha_creacion"=> $serie_interno,
-            "total"=> $post['descuento'],
-            "detalle"=> $post['aut_pago'] ?? 0,
+            "id_tipo_pago"=>$metodos[0]->metodo,
+            "no_aut"=> $metodos[0]->numero,
+            "numero"=> $num+1,
+            "serie"=> 'A',
+            "nit"=> $post['nit'],
+            "fecha_creacion"=> date('Y-m-d'),
+            "total"=> $post['total'],
+            "detalle"=> json_encode($carrito),
         ];
+        $recibos->insert($dataRecibo);
 
-        if ($recibos->insert($dataRecibo)) {
+        $insertId = $recibos->insertID();
+        $key=0;
+        foreach ($carrito as $car) {
+            $detalle[$key]['id_recibo'] = $insertId;
+            $detalle[$key]['id_producto'] = intval($car->id);
+            $detalle[$key]['cantidad'] = intval($car->cantidad);
+            $detalle[$key]['sub_total'] = $car->subtotal;
+            $key++;
+        }
+        $recibos_detalle->insertBatch($detalle);
+
+        $db->transComplete();
+
+        if ($db->transStatus() === FALSE) {
+            $db->transRollback();
+            $data['error']=true ;
+        }else {
             $data['id_pago']  =   $recibos->getInsertID();
             $data['error']=false ;
-            $data['pdfUrl'] = $this->ticket($data['id_pago'], null, 'reciboInterno' );
-            //$data['sae_print'] = $this->print_sae($data['pdfUrl'], $user_payments->getReceiptData( $response['id_pago'], $post['ciclo'] ), 'recibo' );
-        }else {
-            $data['error']=true ;
         }
 
         return $this->response->setJSON($data);
@@ -105,6 +126,32 @@ class VentasController extends BaseController
 		$response = curl_exec($curl);
 		curl_close($curl);
 		return $this->response->setJSON($response);
+	}
+
+    public function ventas(){
+        $recibos= model('RecibosModel');
+        $data['perfil'] = $this->perfil;
+        $data['recibos'] =$recibos->findAll();
+        return view('administrador/recibos', $data);
+    }
+
+    public function print_recibo($id){
+        $recibos= model('RecibosModel');
+        $data['recibo'] =$recibos->find($id);
+        try {
+            $html = view('docs/recibo', $data);
+            $dompdf = new Dompdf();
+            $dompdf->loadHtml( $html );
+            //$dompdf->setPaper('b7', 'portrait');
+            $dompdf->set_paper(array(0,0,216,850));
+            $dompdf->set_option('dpi', 76);
+            $dompdf->render();
+            $dompdf->stream("cierre.pdf", array("Attachment" => false));
+        } catch (Html2PdfException $e) {
+            $html2pdf->clean();
+            $formatter = new ExceptionFormatter($e);
+            echo $formatter->getHtmlMessage();
+        }
 	}
 
 }
