@@ -15,6 +15,8 @@ $routes->get('/productos/listar', 'VentasController::productos');
 $routes->get('/metodos/listar', 'VentasController::metodos');
 $routes->post('/guardar_venta', 'VentasController::guardar_venta');
 $routes->get('/ventas/stock', 'VentasController::stock');
+$routes->get('/categoria','CategoriaController::verCategorias');
+$routes->get('/nuevaCat','CategoriaController::nuevaCategoria');
 
 
 
