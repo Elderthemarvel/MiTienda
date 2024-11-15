@@ -296,7 +296,6 @@
                     }
                 })
             },
-
             borrar_metodo: function(index){
                 this.metodos.splice(index,1);
             },
@@ -311,8 +310,8 @@
                     .then( response => {
                         unblockUI();
                         this.no_recibo = response.data.numero_recibo;
-                        if (response.data.error== 0) {
-                            console.log(response.data);
+                        if (!response.data.error) {
+                            this.imprimir_recibo(response.data.id_pago);
                         }else{
                                 Swal.fire({
                                         icon: 'error',
@@ -326,7 +325,18 @@
                     .catch(function (error) {
                         console.log(error);
                     });
-            }
+            },
+            imprimir_recibo(id){
+                printJS({
+                    printable:'<?=base_url("imprimir/")?>'+id, 
+                    type:'pdf',
+                    onPrintDialogClose: function() {
+                        window.location.href = "<?=base_url('/generar')?>";
+                    },
+                    showModal:true,
+                    modalMessage:'Generando Documento, espere...', 
+                });
+            },
 		},
         mounted() {
             this.listar_productos();

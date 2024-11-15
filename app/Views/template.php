@@ -20,6 +20,9 @@
     <script src="<?=base_url('/js/select2.min.js')?>"></script>
     <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <script src=" https://printjs-4de6.kxcdn.com/print.min.js"></script>
+    <link rel="stylesheet" href="https://printjs-4de6.kxcdn.com/print.min.css">
+    
 </head>
 
 <body>
