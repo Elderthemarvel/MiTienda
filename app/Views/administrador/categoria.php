@@ -2,55 +2,63 @@
 
 <?= $this->section('contenido') ?>
 
-    <h1>Registro de categorias</h1>
+    <h1>Registro de Categorías</h1>
 
-    <form id="categoryForm" action="<?= base_url('/administrador/categoria') ?>" method="post">
-            <div class="mb-3">
-                <label for="categoryId" class="form-label">ID de Categoría</label>
-                <input type="text" class="form-control" id="categoryId" placeholder="ID" disabled>
-            </div>
-            <div class="mb-3">
-                <label for="categoryName" class="form-label">Nombre de la Categoría</label>
-                <input type="text" class="form-control" id="categoryName" placeholder="Nombre de la categoría" required>
-            </div>
-           
-            <button type="button" class="btn btn-primary" onclick="createCategory()">Crear</button>
-            <button type="button" class="btn btn-success" onclick="updateCategory()">Actualizar</button>
-            <button type="button" class="btn btn-danger" onclick="deleteCategory()">Eliminar</button>
-            <button type="button" class="btn btn-secondary" onclick="resetForm()">Limpiar</button>
-        </form>
-
-        <!-- Tabla para Mostrar Categorías -->
-        <div class="mt-5">
-            <h3>Categorías Existentes</h3>
-            <table class="table table-striped" id="categoryTable">
-                <thead>
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <?php if (!empty($datoCategoria) && is_array($datosCategoria)) : ?>
-                    <?php foreach ($datosCategoria as $registro) : ?>
-                        <tr>
-                            <td><?php echo $registro['id']; ?></td>
-                            <td><?php echo $registro['nom_categoria']; ?></td>
-                            <td class="text-center"><a href="<?= base_url('modificar_pass/' . $registro['id']) ?>" class="btn btn-success btn-sm" title="Modificar contraseña"><i class="bi bi-key"></i></a></td>
-                            <td><?php echo $registro['created_at']; ?></td>
-                            <td class="text-center"><a href="<?= base_url('modificar_usuario/' . $registro['id']) ?>" class="btn btn-warning btn-sm" title="Modificar usuario"><i class="bi bi-pencil"></i></a></td>
-                            <td class="text-center"><a href="<?= base_url('eliminar_user/' . $registro['id']) ?>" class="btn btn-danger" title="Eliminar usuario"><i class="bi bi-trash"></i></a></td>
-                        </tr>
-                    <?php endforeach; ?>
-                <?php else : ?>
-                    <tr>
-                        <td colspan="11" class="text-center">No hay categorias registradas</td>
-                    </tr>
-                <?php endif; ?>
-                </tbody>
-            </table>
+    <!-- Mensaje de éxito o error -->
+    <?php if (session()->getFlashdata('error')) : ?>
+        <div class="alert alert-danger">
+            <?= session()->getFlashdata('error') ?>
         </div>
+    <?php endif; ?>
+
+    <?php if (session()->getFlashdata('success')) : ?>
+        <div class="alert alert-success">
+            <?= session()->getFlashdata('success') ?>
+        </div>
+    <?php endif; ?>
+
+    <div class="mt-5">
+        <h3>Categorías Existentes</h3>
+        <table class="table table-striped" id="categoryTable">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php if (!empty($datosCategoria) && is_array($datosCategoria)) : ?>
+                <?php foreach ($datosCategoria as $registro) : ?>
+                    <tr>
+                        <td><?= $registro['id']; ?></td>
+                        <td><?= $registro['nom_categoria']; ?></td>
+                        <td>
+                            <!-- Enlace para editar categoría -->
+                            <a href="<?= base_url('categoria/editar/' . $registro['id']); ?>" class="btn btn-primary btn-sm">Editar</a>
+                            
+                            <!-- Enlace para eliminar categoría -->
+                            <a href="<?= base_url('categoria/eliminar/' . $registro['id']); ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que quieres eliminar esta categoría?');">Eliminar</a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            <?php else : ?>
+                <tr>
+                    <td colspan="3" class="text-center">No hay categorías registradas</td>
+                </tr>
+            <?php endif; ?>
+            </tbody>
+        </table>
+
+        <!-- Formulario para agregar una nueva categoría -->
+        <h3>Agregar Nueva Categoría</h3>
+        <form action="<?= base_url('categoria/guardar'); ?>" method="post">
+            <div class="form-group">
+                <label for="nombreCategoria">Nombre de la Categoría</label>
+                <input type="text" name="nom_categoria" id="nombreCategoria" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-success mt-3">Guardar Categoría</button>
+        </form>
     </div>
 
 <?= $this->endSection() ?>

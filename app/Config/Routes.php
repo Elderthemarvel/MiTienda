@@ -18,8 +18,12 @@ $routes->get('/ventas/stock', 'VentasController::stock');
 $routes->get('/ventas', 'VentasController::ventas');
 $routes->get('/imprimir/(:num)', 'VentasController::print_recibo/$1');
 
-$routes->get('/categoria','CategoriaController::verCategorias');
-$routes->get('/nuevaCat','CategoriaController::nuevaCategoria');
+$routes->get('/categoria', 'CategoriaController::verCategorias');
+$routes->post('/categoria/guardar', 'CategoriaController::guardarCategoria');
+$routes->get('/categoria/editar/(:num)', 'CategoriaController::editarCategoria/$1');
+$routes->post('/categoria/actualizar/(:num)', 'CategoriaController::actualizarCategoria/$1');
+$routes->get('/categoria/eliminar/(:num)', 'CategoriaController::eliminarCategoria/$1');
+
 
 
 
