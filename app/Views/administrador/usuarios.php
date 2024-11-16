@@ -26,8 +26,8 @@
                         <th>Género</th>
                         <th>Fecha de Nacimiento</th>
                         <th>Modificar Contraseña</th>
-                        <th>Creado el</th>
-                        <th>Modificar</th>
+                        <th>Fecha de Creación</th>
+                        <th>Modificar Usuario</th>
                         <th>Eliminar </th>
                     </tr>
                 </thead>
