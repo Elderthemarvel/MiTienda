@@ -41,6 +41,11 @@ class UsuarioController extends Controller
             'fecha_nacimiento' => $this->request->getPost('fecha_nacimiento'),
         ];
         
+        $correoExistente = $usuario->where('correo', $datos['correo'])->first();
+        if ($correoExistente) {
+            return redirect()->back()->withInput()->with('error', 'El correo ya está registrado. Intenta con otro.');
+        }
+
         try {
             // Intentamos insertar los datos
             if ($usuario->insert($datos) === false) {
